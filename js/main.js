@@ -507,3 +507,17 @@ document.addEventListener('click',function(e){
   var btn=document.querySelector('.tab-btn[data-tab="'+id+'"]');
   if(btn){btn.click(); var sec=document.getElementById('services'); if(sec)sec.scrollIntoView({behavior:'smooth'});}
 });
+
+
+/* قياس ارتفاع الهيدر لاستخدامه في تثبيت الشريط الفرعي على الجوال */
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  function setHdr() {
+    document.documentElement.style.setProperty('--hdr-h', header.offsetHeight + 'px');
+  }
+  setHdr();
+  window.addEventListener('resize', setHdr);
+  window.addEventListener('load', setHdr);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setHdr);
+})();
