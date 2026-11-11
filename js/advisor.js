@@ -1042,7 +1042,7 @@
     if (MALE_RE.test(n)) return 'male';
     return 'unknown';
   }
-  var CFG = window.GOVESER_ADVISOR_CONFIG || { ttsEndpoint: 'https://goveser-tts.ai-chat-bot-2030.workers.dev/' };
+  var CFG = window.GOVESER_ADVISOR_CONFIG || { ttsEndpoint: 'https://goveser-tts.ai-chat-bot-2030.workers.dev/tts', strictMale: true, ttsAlways: true };
   function remoteAvail() { return !!(CFG.ttsEndpoint && window.fetch); }
   // الأصوات المقترحة: الرجال أولًا؛ تُستبعد الأصوات النسائية المعروفة ما دام يوجد غيرها
   function candidates(code) {
