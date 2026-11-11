@@ -1,0 +1,6 @@
+name = "goveser-tts"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+# [vars]
+# ALLOW_ORIGIN = "https://your-site.example"   # يحمي الحصة المجانية
+# يُفضَّل ربط النطاق (Route/Custom Domain) لأن كاش Cloudflare لا يعمل على workers.dev

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="الإدارة العامة للخدمات الحكومية — مركز خدمات المستثمرين" />
+  <title>الإدارة العامة للخدمات الحكومية</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     FLAG STRIP
+════════════════════════════════════════ -->
+<div class="flag-strip" aria-hidden="true">
+  <span></span><span></span><span></span>
+</div>
+
+<!-- ══════════════════════════════════════
+     UTILITY BAR
+════════════════════════════════════════ -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-right">
+      <span data-i18n="util.hours">أوقات العمل: الأحد – الخميس، 9 ص – 3 م</span>
+      <span>|</span>
+      <a href="tel:16035" data-i18n="util.phone">اتصل بنا: 16035</a>
+    </div>
+    <div class="utility-left">
+      <span>|</span>
+      <a href="#" data-i18n="util.portal">دليل تقديم الطلبات للإدارة</a>
+
+      <!-- Language Toggle -->
+      <div class="lang-toggle" role="group" aria-label="Language / اللغة">
+        <button class="lang-btn active" data-lang="ar">عربي</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header class="site-header" role="banner">
+  <div class="container">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo" aria-label="الصفحة الرئيسية">
+      <div class="logo-emblem" aria-hidden="true">
+        <!-- Eagle of Egypt (simplified SVG) -->
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 10 C28 10 18 18 15 30 L12 30 L10 24 L8 30 C6 32 6 36 8 38 L12 38 C13 44 17 50 22 54 L22 62 L30 60 L32 64 L40 62 L48 64 L50 60 L58 62 L58 54 C63 50 67 44 68 38 L72 38 C74 36 74 32 72 30 L70 24 L68 30 L65 30 C62 18 52 10 40 10Z" fill="#F97316" opacity="0.9"/>
+          <circle cx="34" cy="28" r="3" fill="#1B3A6B"/>
+          <circle cx="46" cy="28" r="3" fill="#1B3A6B"/>
+          <path d="M33 38 Q40 44 47 38" stroke="#1B3A6B" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <rect x="35" y="55" width="10" height="6" rx="1" fill="#CE1126"/>
+          <rect x="35" y="57" width="10" height="2" fill="#FFFFFF"/>
+          <rect x="35" y="59" width="10" height="2" fill="#000000"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text-ar" data-i18n="logo.name">الإدارة العامة للخدمات الحكومية</div>
+        <div class="logo-text-en" data-i18n="logo.name.en">General Administration of Government Services</div>
+        <div class="logo-sub" data-i18n="logo.sub">مركز خدمات المستثمرين</div>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="القائمة الرئيسية">
+      <a href="index.html" class="active" data-i18n="nav.home">الرئيسية</a>
+
+      <div class="nav-item">
+        <a href="#services" aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="nav.services">الخدمات</span>
+          <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="dropdown" role="menu">
+          <a href="pages/investor-residency.html" role="menuitem">
+            <span>🏢</span><span data-i18n="nav.investor">إقامة مستثمر</span>
+          </a>
+          <a href="pages/work-permits.html" role="menuitem">
+            <span>📋</span><span data-i18n="nav.work">تراخيص العمل</span>
+          </a>
+          <a href="pages/investor-car.html" role="menuitem">
+            <span>🚗</span><span data-i18n="nav.car">سيارة مستثمر</span>
+          </a>
+          <a href="pages/dependents.html" role="menuitem">
+            <span>🧹</span><span data-i18n="nav.dependents">التابعات (عمالة منزلية)</span>
+          </a>
+          <a href="pages/partner-permit.html" role="menuitem">
+            <span>🤝</span><span data-i18n="nav.partner">ترخيص غير مساهم</span>
+          </a>
+          <a href="pages/law159.html" role="menuitem">
+            <span>⚖️</span><span data-i18n="nav.law159">ترخيص 159</span>
+          </a>
+          <a href="pages/offices.html" role="menuitem">
+            <span>🏢</span><span data-i18n="nav.offices">مكاتب التمثيل</span>
+          </a>
+          <a href="pages/branches.html" role="menuitem">
+            <span>🌐</span><span data-i18n="nav.branches">فروع الشركات الأجنبية</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="pages/assistant.html" data-i18n="nav.assistant">مساعد الإدارة</a>
+
+      <div class="nav-item">
+        <a href="#contact" aria-haspopup="true" aria-expanded="false">
+          <span data-i18n="nav.contact">تواصل معنا</span>
+          <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="dropdown" role="menu">
+          <a href="https://example.com/inquiry" target="_blank" rel="noopener" role="menuitem">
+            <span>🔍</span><span data-i18n="nav.inquiry">استعلام عن طلباتي</span>
+          </a>
+          <a href="https://example.com/login" target="_blank" rel="noopener" role="menuitem">
+            <span>🔐</span><span data-i18n="nav.login">تسجيل الدخول</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     MOBILE NAV
+════════════════════════════════════════ -->
+<nav class="mobile-nav" id="mobileNav" aria-label="القائمة المحمولة" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <div class="logo-text-ar" style="color:#fff; font-size:0.9rem;" data-i18n="logo.name">الإدارة العامة للخدمات الحكومية</div>
+    <button class="mobile-nav-close" id="mobileClose" aria-label="إغلاق القائمة">✕</button>
+  </div>
+  <a href="index.html" data-i18n="nav.home">الرئيسية</a>
+  <a href="pages/investor-residency.html" class="mobile-sub" data-i18n="nav.investor">إقامة مستثمر</a>
+  <a href="pages/work-permits.html" class="mobile-sub" data-i18n="nav.work">تراخيص العمل</a>
+  <a href="pages/investor-car.html" class="mobile-sub" data-i18n="nav.car">سيارة مستثمر</a>
+  <a href="pages/dependents.html" class="mobile-sub" data-i18n="nav.dependents">التابعات (عمالة منزلية)</a>
+  <a href="pages/partner-permit.html" class="mobile-sub" data-i18n="nav.partner">ترخيص غير مساهم</a>
+  <a href="pages/law159.html" class="mobile-sub" data-i18n="nav.law159">ترخيص 159</a>
+  <a href="pages/offices.html" class="mobile-sub" data-i18n="nav.offices">مكاتب التمثيل</a>
+  <a href="pages/branches.html" class="mobile-sub" data-i18n="nav.branches">فروع الشركات الأجنبية</a>
+  <a href="pages/assistant.html" data-i18n="nav.assistant">مساعد الإدارة</a>
+  <a href="https://example.com/inquiry" target="_blank" rel="noopener" data-i18n="nav.inquiry">استعلام عن طلباتي</a>
+  <a href="https://example.com/login" target="_blank" rel="noopener" data-i18n="nav.login">تسجيل الدخول</a>
+
+  <div style="margin-top:24px; display:flex; gap:8px;">
+    <button class="lang-btn active" data-lang="ar" style="flex:1; padding:10px; border-radius:8px; background:rgba(249,115,22,0.2); border:1px solid rgba(249,115,22,0.4); color:#fff; font-family:inherit; cursor:pointer; font-weight:700;">عربي</button>
+    <button class="lang-btn" data-lang="en" style="flex:1; padding:10px; border-radius:8px; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#aaa; font-family:inherit; cursor:pointer; font-weight:700;">EN</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="container">
+
+    <!-- Left: Text -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span data-i18n="hero.badge">الإدارة العامة للخدمات الحكومية</span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        <span data-i18n="hero.title1">ضوابط وإجراءات</span>
+        <span class="highlight" data-i18n="hero.title2">خدمات الإدارة</span>
+      </h1>
+
+      <p class="hero-desc" data-i18n="hero.desc">
+        تُعد إدارة الخدمات الحكومية بمركز خدمات المستثمرين الإدارة المعنية بخدمة المستثمرين الأجانب في مصر من حيث إقامات المستثمرين، وتراخيص العمل للعمال والتابعين الأجانب، وسيارات المستثمرين الأجانب بنظام الإفراج المؤقت، وفتح فروع الشركات الأجنبية، وقيد مكاتب التمثيل للشركات الأجنبية، واستخراج تراخيص عمل المستثمرين الأجانب بشركات قانون 159 لسنة 1981.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">
+          <span>⚡</span>
+          <span data-i18n="hero.btn.services">تعرف على خدمات الإدارة</span>
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <span>📞</span>
+          <span data-i18n="hero.btn.contact">تواصل معنا</span>
+        </a>
+      </div>
+
+      <p class="hero-orient" data-i18n="hero.orient">
+        دليل إلكتروني لخدمات الإدارة لمعرفة كافة الخدمات والضوابط والإجراءات قبل التقديم.
+      </p>
+      <div class="hero-chips" aria-label="مسارات سريعة">
+        <a class="hero-chip" href="pages/investor-residency.html" data-i18n="hero.chip.residency">إقامة / تأشيرة مستثمر (قانون الاستثمار)</a>
+        <a class="hero-chip" href="#services" data-i18n="hero.chip.work">ترخيص عمل (استثمار أو 159)</a>
+        <a class="hero-chip" href="#tab-foreign" data-tab-jump="tab-foreign" data-i18n="hero.chip.foreign">فرع شركة أجنبية / مكتب تمثيل</a>
+      </div>
+    </div>
+
+    <!-- Right: Video -->
+    <div class="hero-media">
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
+          title="تعرف على خدمات الإدارة"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <p class="video-caption" data-i18n="hero.video.caption">تعرف على خدمات الإدارة</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SERVICES SECTION
+════════════════════════════════════════ -->
+<section class="services-section" id="services" aria-labelledby="services-title">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="sec.services.eyebrow">اختصاص الإدارة</span>
+      <h2 class="section-title" id="services-title">
+        <span data-i18n="sec.services.title">خدمات الإدارة العامة للخدمات الحكومية</span>
+      </h2>
+      <p class="section-desc" data-i18n="sec.services.desc">
+        إذا كانت شركتك خاضعة للهيئة العامة للاستثمار أو تحتاج قيد مكتب تمثيل أو فرع شركة أجنبية، فهذه الإدارة هي المختصة. تعرّف على الضوابط والإجراءات قبل التقديم.
+      </p>
+      <div class="section-line"><div class="section-line-inner"></div></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="services-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="tab-law72" role="tab" aria-selected="true" data-i18n="tab.law72">
+        قانون الاستثمار 72/2017
+      </button>
+      <button class="tab-btn" data-tab="tab-law159" role="tab" aria-selected="false" data-i18n="tab.law159">
+        قانون الشركات 159/1981
+      </button>
+      <button class="tab-btn" data-tab="tab-foreign" role="tab" aria-selected="false" data-i18n="tab.foreign">
+        الشركات الأجنبية
+      </button>
+    </div>
+
+    <!-- Tab: Law 72 -->
+    <div class="tab-content active" id="tab-law72" role="tabpanel">
+      <div class="services-grid">
+
+        <!-- Card: Investor Residency -->
+        <a href="pages/investor-residency.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">🛂</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.investor.cat">إقامة</div>
+              <div class="card-title" data-i18n="card.investor.title">إقامة المستثمر</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.investor.desc">إقامة خاصة للمستثمرين الأجانب في مصر مرتبطة بالشركة المؤسسة وفق قانون الاستثمار.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.investor.tag1">سريعة</span>
+              <span class="tag" data-i18n="card.investor.tag2">متجددة</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.investor.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card: Work Permits -->
+        <a href="pages/work-permits.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">📋</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.work.cat">عمل</div>
+              <div class="card-title" data-i18n="card.work.title">تراخيص العمل للعمال الأجانب</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.work.desc">تصاريح العمل للعمال والموظفين الأجانب العاملين في شركات قانون الاستثمار.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.work.tag1">للموظفين</span>
+              <span class="tag" data-i18n="card.work.tag2">سنوية</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.work.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card: Partner Permit -->
+        <a href="pages/partner-permit.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">🤝</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.partner.cat">ترخيص</div>
+              <div class="card-title" data-i18n="card.partner.title">ترخيص غير مساهم أو شريك</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.partner.desc">ترخيص عمل مخصص للأجانب غير المساهمين أو الشركاء في شركات الاستثمار.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.partner.tag1">غير مساهم</span>
+              <span class="tag" data-i18n="card.partner.tag2">شريك</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.partner.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card: Investor Car -->
+        <a href="pages/investor-car.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">🚗</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.car.cat">مركبات</div>
+              <div class="card-title" data-i18n="card.car.title">سيارة المستثمر</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.car.desc">السماح للمستثمر الأجنبي بإدخال سيارته الخاصة بنظام الإفراج المؤقت.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.car.tag1">إفراج مؤقت</span>
+              <span class="tag" data-i18n="card.car.tag2">معفاة من الجمارك</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.car.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card: Dependents -->
+        <a href="pages/dependents.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">🧹</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.dep.cat">عمالة منزلية</div>
+              <div class="card-title" data-i18n="card.dep.title">إقامة التابعات (العمالة المنزلية)</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.dep.desc">إقامة التابعات من العمالة المنزلية التي تعمل في منزل المستثمر الأجنبي — وليست أفراد أسرته.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.dep.tag1">عمالة منزلية</span>
+              <span class="tag" data-i18n="card.dep.tag2">منزل المستثمر</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.dep.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Tab: Law 159 -->
+    <div class="tab-content" id="tab-law159" role="tabpanel">
+      <div class="services-grid">
+        <a href="pages/law159.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">⚖️</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.l159.cat">ترخيص</div>
+              <div class="card-title" data-i18n="card.l159.title">ترخيص العمل — قانون 159</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.l159.desc">ترخيص عمل للمستثمرين الأجانب في الشركات المؤسسة وفق قانون الشركات رقم ١٥٩ لسنة ١٩٨١.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.l159.tag1">قانون 159</span>
+              <span class="tag" data-i18n="card.l159.tag2">مستثمر</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.l159.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tab: Foreign Companies -->
+    <div class="tab-content" id="tab-foreign" role="tabpanel">
+      <div class="services-grid">
+
+        <a href="pages/branches.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">🌐</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.branch.cat">شركات أجنبية</div>
+              <div class="card-title" data-i18n="card.branch.title">فروع الشركات الأجنبية</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.branch.desc">تسجيل وفتح فروع للشركات الأجنبية العاملة في مصر وفق الإجراءات القانونية المعتمدة.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.branch.tag1">فروع</span>
+              <span class="tag" data-i18n="card.branch.tag2">تسجيل</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.branch.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+
+        <a href="pages/offices.html" class="service-card">
+          <div class="card-header">
+            <div class="card-icon">🏢</div>
+            <div class="card-meta">
+              <div class="card-category" data-i18n="card.office.cat">مكاتب</div>
+              <div class="card-title" data-i18n="card.office.title">مكاتب التمثيل</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-desc" data-i18n="card.office.desc">قيد وتسجيل مكاتب التمثيل للشركات الأجنبية الراغبة في تأسيس حضور في مصر.</p>
+            <div class="card-tags">
+              <span class="tag" data-i18n="card.office.tag1">تمثيل</span>
+              <span class="tag" data-i18n="card.office.tag2">قيد</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-link">
+              <span data-i18n="card.office.link">التفاصيل الكاملة</span>
+              <span class="card-link-arrow">←</span>
+            </span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     LAWS COMPARISON
+════════════════════════════════════════ -->
+<section class="laws-section" aria-labelledby="laws-title">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="sec.laws.eyebrow">مقارنة القوانين</span>
+      <h2 class="section-title" id="laws-title" data-i18n="sec.laws.title">ما الفرق بين القانونين؟</h2>
+      <p class="section-desc" data-i18n="sec.laws.desc">قبل تأسيس شركتك، تعرّف على الاختلافات الجوهرية بين قانوني الاستثمار</p>
+      <div class="section-line"><div class="section-line-inner"></div></div>
+    </div>
+
+    <div class="laws-grid">
+
+      <!-- Law 72 -->
+      <div class="law-card">
+        <div class="law-card-header">
+          <span class="law-number" data-i18n="law72.num">72 / 2017</span>
+          <div class="law-title" data-i18n="law72.title">قانون الاستثمار</div>
+          <div class="law-subtitle" data-i18n="law72.sub">الشركات الخاضعة لهيئة الاستثمار</div>
+        </div>
+        <div class="law-card-body">
+          <div class="law-features">
+            <div class="law-feature">
+              <span class="feature-check">✓</span>
+              <span data-i18n="law72.f1">إقامة مستثمر متجددة</span>
+            </div>
+            <div class="law-feature">
+              <span class="feature-check">✓</span>
+              <span data-i18n="law72.f2">تراخيص عمل للعمال الأجانب</span>
+            </div>
+            <div class="law-feature">
+              <span class="feature-check">✓</span>
+              <span data-i18n="law72.f3">سيارة مستثمر بالإفراج المؤقت</span>
+            </div>
+            <div class="law-feature">
+              <span class="feature-check">✓</span>
+              <span data-i18n="law72.f4">إقامة التابعات (عمالة منزلية لدى المستثمر)</span>
+            </div>
+            <div class="law-feature">
+              <span class="feature-check">✓</span>
+              <span data-i18n="law72.f5">خدمات مركز خدمات المستثمرين</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Law 159 -->
+      <div class="law-card">
+        <div class="law-card-header" style="background: linear-gradient(135deg, #3a3a3a, #555);">
+          <span class="law-number" data-i18n="law159.num">159 / 1981</span>
+          <div class="law-title" data-i18n="law159.title">قانون الشركات</div>
+          <div class="law-subtitle" data-i18n="law159.sub">الشركات العادية (غير خاضعة للهيئة)</div>
+        </div>
+        <div class="law-card-body">
+          <div class="law-features">
+            <div class="law-feature">
+              <span class="feature-check" style="background:rgba(249,115,22,0.12); color:#F97316;">✓</span>
+              <span data-i18n="law159.f1">ترخيص عمل للمستثمر فقط</span>
+            </div>
+            <div class="law-feature" style="opacity:0.5;">
+              <span class="feature-check" style="background:#f5f5f5; color:#aaa;">✗</span>
+              <span data-i18n="law159.f2">لا يشمل تراخيص عمل للعمال</span>
+            </div>
+            <div class="law-feature" style="opacity:0.5;">
+              <span class="feature-check" style="background:#f5f5f5; color:#aaa;">✗</span>
+              <span data-i18n="law159.f3">لا يشمل سيارة مستثمر</span>
+            </div>
+            <div class="law-feature" style="opacity:0.5;">
+              <span class="feature-check" style="background:#f5f5f5; color:#aaa;">✗</span>
+              <span data-i18n="law159.f4">لا يشمل إقامة التابعين</span>
+            </div>
+            <div class="law-feature" style="opacity:0.5;">
+              <span class="feature-check" style="background:#f5f5f5; color:#aaa;">✗</span>
+              <span data-i18n="law159.f5">إجراءات من خلال الجهات العادية</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CTA SECTION
+════════════════════════════════════════ -->
+<section class="cta-section" id="contact" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <h2 class="cta-title" id="cta-title" data-i18n="cta.title">هل تحتاج مساعدة في اختيار الخدمة المناسبة؟</h2>
+        <p class="cta-desc" data-i18n="cta.desc">فريقنا المتخصص جاهز للإجابة على جميع استفساراتك ومساعدتك في اختيار الخدمة الأنسب لاحتياجات شركتك.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="pages/assistant.html" class="btn btn-primary">
+          <span>🤖</span>
+          <span data-i18n="cta.btn.assistant">مساعد الإدارة الذكي</span>
+        </a>
+        <a href="tel:16035" class="btn btn-outline">
+          <span>📞</span>
+          <span data-i18n="cta.btn.contact">تواصل مباشرة</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-emblem" aria-hidden="true">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+              <path d="M40 10 C28 10 18 18 15 30 L12 30 L10 24 L8 30 C6 32 6 36 8 38 L12 38 C13 44 17 50 22 54 L22 62 L30 60 L32 64 L40 62 L48 64 L50 60 L58 62 L58 54 C63 50 67 44 68 38 L72 38 C74 36 74 32 72 30 L70 24 L68 30 L65 30 C62 18 52 10 40 10Z" fill="#F97316"/>
+            </svg>
+          </div>
+          <div class="footer-logo-text" data-i18n="logo.name">الإدارة العامة للخدمات الحكومية</div>
+        </div>
+        <p class="footer-brand-desc" data-i18n="footer.desc">
+          الإدارة المعنية بتوضيح خدمات الإدارة العامة للخدمات الحكومية وإجراءاتها ومستنداتها للمستثمرين.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4 data-i18n="footer.links">روابط سريعة</h4>
+        <ul class="footer-links">
+          <li><a href="pages/investor-residency.html" data-i18n="nav.investor">إقامة مستثمر</a></li>
+          <li><a href="pages/work-permits.html" data-i18n="nav.work">تراخيص العمل</a></li>
+          <li><a href="pages/investor-car.html" data-i18n="nav.car">سيارة مستثمر</a></li>
+          <li><a href="pages/dependents.html" data-i18n="nav.dependents">التابعات (عمالة منزلية)</a></li>
+          <li><a href="pages/law159.html" data-i18n="nav.law159">ترخيص 159</a></li>
+          <li><a href="pages/branches.html" data-i18n="nav.branches">فروع الشركات الأجنبية</a></li>
+          <li><a href="pages/offices.html" data-i18n="nav.offices">مكاتب التمثيل</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact.title">تواصل معنا</h4>
+        <ul class="footer-links">
+          <li><a href="tel:16035" data-i18n="footer.phone">خط ساخن: 16035</a></li>
+          <li><a href="#" data-i18n="footer.location">مركز خدمات المستثمرين، القاهرة</a></li>
+          <li><a href="https://example.com/inquiry" target="_blank" rel="noopener" data-i18n="nav.inquiry">استعلام عن طلباتي</a></li>
+          <li><a href="https://example.com/login" target="_blank" rel="noopener" data-i18n="nav.login">تسجيل الدخول</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2025 الإدارة العامة للخدمات الحكومية — جميع الحقوق محفوظة</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTopBtn" aria-label="العودة لأعلى الصفحة">↑</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="إقامة مستثمر بشركات قانون الاستثمار" data-p18n="page.desc" />
+  <title>إقامة مستثمر — الإدارة العامة للخدمات الحكومية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css?v=44" />
+  <style>
+    .page-hero{background:linear-gradient(160deg,var(--navy-dark) 0%,var(--navy) 60%,var(--navy-light) 100%);color:var(--white);padding:56px 0 48px;position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 50%,rgba(249,115,22,.13) 0%,transparent 55%)}
+    .page-hero-inner{position:relative;z-index:1}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.6);margin-bottom:18px;flex-wrap:wrap}
+    .breadcrumb a{color:rgba(255,255,255,.6);transition:color var(--transition)}
+    .breadcrumb a:hover{color:var(--gold-light)}
+    .breadcrumb-sep{color:rgba(255,255,255,.3)}
+    .breadcrumb-current{color:var(--gold-light);font-weight:600}
+    .page-hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.18);border:1px solid rgba(249,115,22,.35);border-radius:20px;padding:5px 14px;font-size:.75rem;font-weight:700;color:var(--gold-light);margin-bottom:14px}
+    .page-hero h1{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;line-height:1.25;margin-bottom:14px}
+    .page-hero h1 .accent{color:var(--gold-light)}
+    .page-hero-desc{font-size:.95rem;color:rgba(255,255,255,.78);max-width:640px;line-height:1.9;margin-bottom:28px}
+    .hero-chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 14px;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.85)}
+    .service-subnav{background:var(--white);border-bottom:2px solid var(--gray-200);position:sticky;top:73px;z-index:900;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+    .service-subnav .container{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+    .service-subnav .container::-webkit-scrollbar{display:none}
+    .subnav-link{display:flex;align-items:center;gap:8px;padding:16px 20px;font-size:.85rem;font-weight:600;color:var(--text-muted);white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all var(--transition);cursor:pointer;text-decoration:none}
+    .subnav-link:hover{color:var(--navy);border-bottom-color:var(--gray-300)}
+    .subnav-link.active{color:var(--navy);border-bottom-color:var(--gold)}
+    .subnav-num{width:22px;height:22px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;transition:all var(--transition)}
+    .subnav-link.active .subnav-num{background:var(--navy);color:var(--white)}
+    .page-body{padding:52px 0 80px;background:var(--gray-50)}
+    .page-layout{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start}
+    .service-section{background:var(--white);border-radius:var(--radius-lg);border:1px solid var(--gray-200);overflow:hidden;margin-bottom:28px;scroll-margin-top:130px}
+    .service-section:last-child{margin-bottom:0}
+    .ss-header{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--white);padding:24px 28px;display:flex;align-items:center;gap:16px}
+    .ss-header-icon{width:48px;height:48px;background:rgba(255,255,255,.15);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+    .ss-header-tag{font-size:.7rem;font-weight:700;color:var(--gold-light);text-transform:uppercase;margin-bottom:4px}
+    .ss-header-title{font-size:1.1rem;font-weight:800;line-height:1.3}
+    .ss-header-sub{font-size:.78rem;color:rgba(255,255,255,.65);margin-top:3px}
+    .ss-header-fee{margin-right:auto;text-align:center;flex-shrink:0}
+    body.lang-en .ss-header-fee{margin-right:0;margin-left:auto}
+    .fee-label{font-size:.68rem;color:rgba(255,255,255,.55);display:block;margin-bottom:2px}
+    .fee-value{font-size:1.1rem;font-weight:800;color:var(--gold-light)}
+    .ss-body{padding:28px}
+    .ss-video{border-radius:var(--radius-md);overflow:hidden;aspect-ratio:16/9;margin-bottom:28px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-200)}
+    .ss-video iframe{width:100%;height:100%;border:none}
+    .info-block{background:var(--gold-pale);border:1px solid rgba(249,115,22,.25);border-right:4px solid var(--gold);border-radius:var(--radius-sm);padding:16px 18px;margin-bottom:24px;font-size:.88rem;color:var(--text-main);line-height:1.8}
+    body.lang-en .info-block{border-right:1px solid rgba(249,115,22,.25);border-left:4px solid var(--gold)}
+    .content-group{margin-bottom:32px}
+    .content-group:last-child{margin-bottom:0}
+    .content-group-title{font-size:1rem;font-weight:800;color:var(--navy);padding-bottom:10px;border-bottom:2px solid var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .cg-icon{width:30px;height:30px;background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;color:var(--white)}
+    .conditions-list{display:flex;flex-direction:column;gap:10px}
+    .condition-item{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;line-height:1.7;color:var(--text-main);padding:10px 14px;background:var(--gray-50);border-radius:var(--radius-sm);border:1px solid var(--gray-100)}
+    .condition-item .ci-bullet{width:22px;height:22px;background:rgba(27,58,107,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--navy);flex-shrink:0;margin-top:1px}
+    .condition-item.highlight{background:var(--gold-pale);border-color:rgba(249,115,22,.3)}
+    .condition-item.highlight .ci-bullet{background:var(--gold);color:var(--navy-dark)}
+    .docs-list{display:flex;flex-direction:column;gap:8px}
+    .doc-item{display:flex;gap:12px;align-items:flex-start;font-size:.87rem;line-height:1.7;color:var(--text-main);padding:11px 14px;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-sm);transition:border-color var(--transition)}
+    .doc-item:hover{border-color:var(--gold)}
+    .doc-icon{font-size:1rem;flex-shrink:0;margin-top:2px}
+    .steps-list{display:flex;flex-direction:column;gap:0;position:relative}
+    .steps-list::before{content:'';position:absolute;top:24px;bottom:24px;right:19px;width:2px;background:var(--gray-200);z-index:0}
+    body.lang-en .steps-list::before{right:auto;left:19px}
+    .step-item{display:flex;gap:16px;align-items:flex-start;padding:14px 0;position:relative;z-index:1}
+    .step-num{width:40px;height:40px;background:var(--white);border:2px solid var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:var(--navy);flex-shrink:0}
+    .step-item:first-child .step-num{background:var(--navy);color:var(--white)}
+    .step-body{flex:1;padding-top:8px}
+    .step-body p{font-size:.87rem;line-height:1.75;color:var(--text-main)}
+    .step-time{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;color:var(--gold);background:var(--gold-pale);border-radius:10px;padding:2px 10px;margin-top:6px}
+    .downloads-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .download-btn{display:flex;align-items:center;gap:10px;padding:13px 16px;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-sm);font-size:.82rem;font-weight:600;color:var(--navy);transition:all var(--transition);text-decoration:none}
+    .download-btn:hover{background:var(--gold-pale);border-color:var(--gold);color:var(--navy-dark);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+    .dl-icon{width:32px;height:32px;background:var(--navy);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;color:var(--white)}
+    .download-btn:hover .dl-icon{background:var(--gold)}
+    .weight-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+    .weight-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-md);overflow:hidden;transition:box-shadow var(--transition)}
+    .weight-card:hover{box-shadow:var(--shadow-md)}
+    .weight-card-header{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:var(--white);padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+    .weight-card-title{font-size:.9rem;font-weight:700}
+    .weight-pct{font-size:1.3rem;font-weight:800;color:var(--gold-light)}
+    .weight-card-body{padding:14px 16px}
+    .weight-tiers{display:flex;flex-direction:column;gap:7px}
+    .weight-tier{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;padding:6px 10px;background:var(--gray-50);border-radius:6px;border:1px solid var(--gray-100)}
+    .weight-tier-label{color:var(--text-main);flex:1;line-height:1.4}
+    .weight-tier-value{font-weight:800;color:var(--navy);font-size:.82rem;white-space:nowrap;margin-right:8px}
+    body.lang-en .weight-tier-value{margin-right:0;margin-left:8px}
+    .quota-table{width:100%;border-collapse:collapse;margin-top:8px}
+    .quota-table th{background:var(--navy);color:var(--white);padding:10px 14px;font-size:.83rem;font-weight:700;text-align:right}
+    body.lang-en .quota-table th{text-align:left}
+    .quota-table td{padding:10px 14px;font-size:.85rem;border-bottom:1px solid var(--gray-100);color:var(--text-main)}
+    .quota-table tr:nth-child(even) td{background:var(--gray-50)}
+    .quota-table td:last-child{font-weight:700;color:var(--navy)}
+    .page-sidebar{display:flex;flex-direction:column;gap:20px}
+    .sidebar-card{background:var(--white);border-radius:var(--radius-md);border:1px solid var(--gray-200);overflow:hidden}
+    .sidebar-card-header{background:linear-gradient(135deg,var(--navy-dark),var(--navy));color:var(--white);padding:14px 18px;font-size:.88rem;font-weight:700;display:flex;align-items:center;gap:8px}
+    .sidebar-card-body{padding:18px}
+    .sidebar-links{display:flex;flex-direction:column;gap:8px}
+    .sidebar-link{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-sm);font-size:.83rem;font-weight:600;color:var(--navy);background:var(--gray-50);border:1px solid var(--gray-200);transition:all var(--transition);text-decoration:none;cursor:pointer}
+    .sidebar-link:hover{background:var(--gold-pale);border-color:var(--gold);color:var(--navy-dark)}
+    .sidebar-link.active{background:var(--navy);border-color:var(--navy);color:var(--white)}
+    .contact-info{display:flex;flex-direction:column;gap:12px}
+    .contact-row{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;line-height:1.6;color:var(--text-main)}
+    .contact-icon{width:30px;height:30px;background:var(--gold-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+    .contact-label{font-size:.72rem;color:var(--text-muted);display:block}
+    .contact-val{font-weight:600;color:var(--navy);direction:ltr;display:block}
+    .fees-list{display:flex;flex-direction:column;gap:8px}
+    .fee-row{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;background:var(--gray-50);border-radius:var(--radius-sm);border:1px solid var(--gray-100);font-size:.83rem}
+    .fee-row-label{color:var(--text-main)}
+    .fee-row-val{font-weight:800;color:var(--navy)}
+    .fee-row-val.free{color:#2e7d32}
+    @media(max-width:992px){.page-layout{grid-template-columns:1fr}.page-sidebar{order:-1}.weight-grid{grid-template-columns:1fr}.downloads-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){.ss-header{flex-wrap:wrap}.ss-header-fee{margin-right:0;width:100%;text-align:right}body.lang-en .ss-header-fee{text-align:left}}
+  </style>
+</head>
+<body>
+
+<div class="flag-strip" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-right">
+      <span data-i18n="util.hours">أوقات العمل: الأحد – الخميس، 9 ص – 3 م</span>
+      <span>|</span>
+      <a href="tel:16035" data-i18n="util.phone">اتصل بنا: 16035</a>
+    </div>
+    <div class="utility-left">
+      <span>|</span>
+      <a href="../index.html" data-i18n="util.portal">دليل تقديم الطلبات للإدارة</a>
+      <span>|</span>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ar">عربي</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="logo">
+      <div class="logo-emblem">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 10 C28 10 18 18 15 30 L12 30 L10 24 L8 30 C6 32 6 36 8 38 L12 38 C13 44 17 50 22 54 L22 62 L30 60 L32 64 L40 62 L48 64 L50 60 L58 62 L58 54 C63 50 67 44 68 38 L72 38 C74 36 74 32 72 30 L70 24 L68 30 L65 30 C62 18 52 10 40 10Z" fill="#F97316" opacity="0.9"/>
+          <circle cx="34" cy="28" r="3" fill="#1B3A6B"/><circle cx="46" cy="28" r="3" fill="#1B3A6B"/>
+          <path d="M33 38 Q40 44 47 38" stroke="#1B3A6B" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <rect x="35" y="55" width="10" height="6" rx="1" fill="#CE1126"/>
+          <rect x="35" y="57" width="10" height="2" fill="#FFFFFF"/>
+          <rect x="35" y="59" width="10" height="2" fill="#000000"/>
+        </svg>
+      </div>
+      <div>
+        <div class="logo-text-ar" data-i18n="logo.name">الإدارة العامة للخدمات الحكومية</div>
+        <div class="logo-text-en" data-i18n="logo.name.en">General Administration of Government Services</div>
+        <div class="logo-sub" data-i18n="logo.sub">مركز خدمات المستثمرين</div>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <a href="../index.html" data-i18n="nav.home">الرئيسية</a>
+      <div class="nav-item">
+        <a href="../index.html#services"><span data-i18n="nav.services">الخدمات</span><span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="investor-residency.html" class="active">🏢 <span data-i18n="nav.investor">إقامة مستثمر</span></a>
+          <a href="work-permits.html">📋 <span data-i18n="nav.work">تراخيص العمل</span></a>
+          <a href="investor-car.html">🚗 <span data-i18n="nav.car">سيارة مستثمر</span></a>
+          <a href="dependents.html">🧹 <span data-i18n="nav.dependents">التابعات (عمالة منزلية)</span></a>
+          <a href="partner-permit.html">🤝 <span data-i18n="nav.partner">ترخيص غير مساهم</span></a>
+          <a href="law159.html">⚖️ <span data-i18n="nav.law159">ترخيص 159</span></a>
+          <a href="offices.html">🏢 <span data-i18n="nav.offices">مكاتب التمثيل</span></a>
+          <a href="branches.html">🌐 <span data-i18n="nav.branches">فروع الشركات الأجنبية</span></a>
+        </div>
+      </div>
+      <a href="assistant.html" data-i18n="nav.assistant">مساعد الإدارة</a>
+      <div class="nav-item">
+        <a href="#"><span data-i18n="nav.contact">تواصل معنا</span><span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <a href="https://example.com/inquiry" target="_blank">🔍 <span data-i18n="nav.inquiry">استعلام عن طلباتي</span></a>
+          <a href="https://example.com/login" target="_blank">🔐 <span data-i18n="nav.login">تسجيل الدخول</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="menu-btn" id="menuBtn"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-header">
+    <div class="logo-text-ar" style="color:#fff;font-size:.9rem;" data-i18n="logo.name">الإدارة العامة للخدمات الحكومية</div>
+    <button class="mobile-nav-close" id="mobileClose">✕</button>
+  </div>
+  <a href="../index.html" data-i18n="nav.home">الرئيسية</a>
+  <a href="investor-residency.html" class="mobile-sub" style="color:var(--gold-light);" data-i18n="nav.investor">إقامة مستثمر</a>
+  <a href="work-permits.html" class="mobile-sub" data-i18n="nav.work">تراخيص العمل</a>
+  <a href="investor-car.html" class="mobile-sub" data-i18n="nav.car">سيارة مستثمر</a>
+  <a href="dependents.html" class="mobile-sub" data-i18n="nav.dependents">التابعات (عمالة منزلية)</a>
+  <a href="law159.html" class="mobile-sub" data-i18n="nav.law159">ترخيص 159</a>
+  <a href="assistant.html" data-i18n="nav.assistant">مساعد الإدارة</a>
+  <div style="margin-top:24px;display:flex;gap:8px;">
+    <button class="lang-btn active" data-lang="ar" style="flex:1;padding:10px;border-radius:8px;background:rgba(249,115,22,.2);border:1px solid rgba(249,115,22,.4);color:#fff;font-family:inherit;cursor:pointer;font-weight:700;">عربي</button>
+    <button class="lang-btn" data-lang="en" style="flex:1;padding:10px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#aaa;font-family:inherit;cursor:pointer;font-weight:700;">EN</button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <nav class="breadcrumb">
+      <a href="../index.html" data-i18n="nav.home">الرئيسية</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="../index.html#services" data-p18n="bc.services">الخدمات</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current" data-p18n="bc.current">إقامة مستثمر</span>
+    </nav>
+    <div class="page-hero-badge">🏠 <span data-p18n="hero.badge">قانون الاستثمار رقم 72 لسنة 2017</span></div>
+    <h1><span data-p18n="hero.title">إقامة مستثمر</span> <span class="accent" data-p18n="hero.title.accent">بشركات قانون الاستثمار</span></h1>
+    <p class="page-hero-desc" data-p18n="hero.desc">خدمة إقامة المستثمر مخصصة للمساهمين والشركاء في الشركات الخاضعة لقانون الاستثمار، بشرط أن يكون للمستثمر حق الإدارة وحصة في رأس المال معاً.</p>
+    <div class="hero-chips">
+      <span class="chip" data-p18n="hero.chip1">✈️ تأشيرة الدخول: راجع قائمة المستندات المعتمدة</span>
+      <span class="chip" data-p18n="hero.chip2">💳 منح/تجديد الإقامة: 1500 جنيه</span>
+      <span class="chip" data-p18n="hero.chip3">🧭 شهادة التحركات: راجع قائمة المستندات المعتمدة</span>
+      <span class="chip" data-p18n="hero.chip4">ℹ️ تحقق من مقابل الخدمة قبل التقديم</span>
+    </div>
+  </div>
+</section>
+
+<!-- SIMPLIFIED SERVICE FLOW -->
+<section class="residency-start" id="residencyStart">
+  <div class="container">
+    <div class="residency-start-heading">
+      <span class="eyebrow" data-p18n="flow.eyebrow">إرشاد خطوة بخطوة</span>
+      <h2 data-p18n="flow.title">ما الخدمة التي تريد إنجازها؟</h2>
+      <p data-p18n="flow.desc">اختر خدمة واحدة لعرض شرحها ومستنداتها ونموذجها فقط.</p>
+    </div>
+    <div class="residency-service-choices" role="group" aria-label="اختيار خدمة إقامة المستثمر" data-p18n-aria-label="flow.choices.aria">
+      <button type="button" class="residency-choice" data-res-service="visa"><span>✈️</span><strong data-p18n="subnav.visa">تأشيرة دخول مستثمر</strong><small data-p18n="flow.visa.note">للمستثمر خارج مصر</small></button>
+      <button type="button" class="residency-choice" data-res-service="grant"><span>🪪</span><strong data-p18n="subnav.grant">منح إقامة مستثمر</strong><small data-p18n="flow.grant.note">أول إقامة على هذه الشركة</small></button>
+      <button type="button" class="residency-choice" data-res-service="renew"><span>🔄</span><strong data-p18n="subnav.renew">تجديد إقامة مستثمر</strong><small data-p18n="flow.renew.note">إقامة سابقة على الشركة نفسها</small></button>
+      <button type="button" class="residency-choice" data-res-service="movement"><span>🧭</span><strong data-p18n="subnav.movement">شهادة تحركات</strong><small data-p18n="flow.movement.note">الاستعلام عن تحركات المستثمر</small></button>
+    </div>
+    <div class="residency-flow-help"><button type="button" id="residencyEligibilityToggle" aria-expanded="false" data-p18n="flow.eligibility">كيف أعرف إن كانت هذه الخدمة مناسبة لشركتي؟</button><button type="button" id="residencyWeightToggle" aria-expanded="false" data-p18n="flow.weight">شرح الوزن النسبي وعدد الإقامات</button><div id="residencyEligibilityHelp" hidden data-p18n="flow.eligibility.help">هذه الصفحة مخصصة للشركات الخاضعة لقانون الاستثمار التي تأسست من خلال الهيئة المختصة. إذا لم تكن متأكدًا من قانون شركتك أو نظام الاستثمار الخاضعة له الشركة، راجع بيانات السجل التجاري ومستندات تأسيس الشركة قبل اختيار الخدمة. لا ترسل بياناتك الشخصية إلى هذا الموقع؛ النموذج التالي يحفظها في متصفحك فقط.</div></div>
+    <div id="residencyWizardMount" class="residency-wizard-mount" hidden></div>
+  </div>
+</section>
+
+<!-- SUB-NAV -->
+<div class="service-subnav">
+  <div class="container">
+    <a class="subnav-link active" href="#visa"><span class="subnav-num">1</span> <span data-p18n="subnav.visa">تأشيرة دخول مستثمر</span></a>
+    <a class="subnav-link" href="#grant"><span class="subnav-num">2</span> <span data-p18n="subnav.grant">منح إقامة مستثمر</span></a>
+    <a class="subnav-link" href="#renew"><span class="subnav-num">3</span> <span data-p18n="subnav.renew">تجديد إقامة مستثمر</span></a>
+    <a class="subnav-link" href="#movement"><span class="subnav-num">4</span> <span data-p18n="subnav.movement">شهادة تحركات</span></a>
+    <a class="subnav-link" href="#weight"><span class="subnav-num">★</span> <span data-p18n="subnav.weight">الوزن النسبي</span></a>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<main class="page-body">
+  <div class="container">
+    <div class="page-layout">
+
+      <!-- MAIN CONTENT -->
+      <div class="page-main">
+
+        <!-- WEIGHT -->
+        <div class="service-section" id="weight">
+          <div class="ss-header">
+            <div class="ss-header-icon">⚖️</div>
+            <div class="ss-header-meta">
+              <div class="ss-header-tag" data-p18n="weight.tag">معيار أساسي</div>
+              <div class="ss-header-title" data-p18n="weight.title">الوزن النسبي للشركة</div>
+              <div class="ss-header-sub" data-p18n="weight.sub">معيار تحديد عدد الإقامات المستحقة</div>
+            </div>
+          </div>
+          <div class="ss-body">
+            <div class="info-block" data-p18n="weight.info">الوزن النسبي هو معيار لتحديد عدد من يحق له الحصول على إقامة مستثمر، ويتكوّن من <strong>4 معايير بإجمالي 100%</strong>، يهدف إلى تحقيق العدالة وإعطاء ميزة للشركات ذات الكيان الاقتصادي الأكبر التي تدعم الاقتصاد المصري.</div>
+            <section class="weight-guide" aria-labelledby="weight-guide-title">
+              <div class="wg-intro">
+                <span class="wg-kicker" data-p18n="wg.kicker">دليل مبسّط قبل البدء</span>
+                <h3 id="weight-guide-title" data-p18n="wg.title">افهم كيف تُحسب نقاط شركتك</h3>
+                <p data-p18n="wg.intro">الفكرة ببساطة: نقيس أربعة جوانب من نشاط الشركة ومساهمتها الاقتصادية. مجموع النقاط هو الذي يحدد الحد الأقصى لعدد المستثمرين الذين يمكن طلب الإقامة لهم.</p>
+                <div class="wg-equation" aria-label="أربعة معايير تساوي مائة بالمائة">
+                  <span data-p18n="wg.eq1">رأس المال</span><b>+</b><span data-p18n="wg.eq2">العمالة</span><b>+</b><span data-p18n="wg.eq3">النشاط</span><b>+</b><span data-p18n="wg.eq4">الموقع</span><b>=</b><strong>100%</strong>
+                </div>
+              </div>
+              <div class="wg-cards">
+                <article class="wg-card wg-capital"><div class="wg-card-top"><span class="wg-icon" aria-hidden="true">💰</span><span class="wg-max">30%</span></div><h4 data-p18n="wg.cap.title">1. رأس المال المثبت</h4><p data-p18n="wg.cap.text">لا يُعتد بمجرد الرقم المكتوب في السجل التجاري. المطلوب إثبات الأموال المدفوعة أو المودعة فعليًا باسم الشركة، وفق شكلها القانوني.</p><details><summary data-p18n="wg.cap.more">ما المستند الذي يثبت رأس المال؟</summary><div data-p18n="wg.cap.detail" data-p18n-html>للشركة المساهمة: المبالغ المؤداة والمؤشر بها في السجل التجاري. لباقي الأشكال: شهادة إيداع بنكي باسم الشركة أو شهادة من قطاع الأداء الاقتصادي، وفق الضوابط. ولا تتجاوز القيمة المحتسبة رأس المال المسجل.</div></details></article>
+                <article class="wg-card wg-labour"><div class="wg-card-top"><span class="wg-icon" aria-hidden="true">👥</span><span class="wg-max">30%</span></div><h4 data-p18n="wg.lab.title">2. العمالة المصرية</h4><p data-p18n="wg.lab.text">يُحسب عدد العاملين المصريين المؤمن عليهم، وليس إجمالي من يعملون بالشركة دون إثبات تأميني.</p><details><summary data-p18n="wg.lab.more">كيف أعرف العدد الذي يُحتسب؟</summary><div data-p18n="wg.lab.detail" data-p18n-html>راجع برنت التأمينات الحديث الصادر باسم الشركة، وتأكد من إجمالي العمالة المصرية المؤمن عليها. من 0 إلى 4: صفر%، من 5 إلى 19: 5%، من 20 إلى 99: 10%، من 100 إلى 500: 20%، وأكثر من 500: 30%.</div></details></article>
+                <article class="wg-card wg-activity"><div class="wg-card-top"><span class="wg-icon" aria-hidden="true">🏭</span><span class="wg-max">20%</span></div><h4 data-p18n="wg.act.title">3. غرض نشاط الشركة</h4><p data-p18n="wg.act.text">المقصود هو النشاط الفعلي المثبت بمستندات الشركة، وليس اسم الشركة أو وصفًا تسويقيًا لها.</p><details><summary data-p18n="wg.act.more">اعرض الأنشطة المستهدفة وشروطها</summary><div data-p18n="wg.act.detail" data-p18n-html><ul><li>أنشطة الطاقة الجديدة والمتجددة.</li><li>الصناعات الثقيلة التي تحددها الجهة الصناعية المختصة، والصناعات التكنولوجية دون التجميع أو البرامج، وصناعة الأدوية والصناعات المغذية.</li><li>التعليم دون الجامعي.</li><li>التنمية المتكاملة: السياحية أو الصناعية أو العمرانية أو الزراعية.</li><li>استصلاح واستزراع الأراضي البور والصحراوية بمساحة لا تقل عن 500 فدان وبحيازة مستقرة.</li><li>إقامة المستشفيات.</li><li>إقامة وتشغيل الفنادق والقرى السياحية بطاقة إيوائية لا تقل عن 500 غرفة، مع الاستثناءات المحددة بالمستند للمحافظات الحدودية والمناطق المجاورة للوادي القديم والمناطق النائية.</li><li>مشروعات البنية الأساسية: مياه الشرب والصرف الصحي والكهرباء والطرق والاتصالات وخطوط مترو الأنفاق.</li><li>قطاع البترول.</li><li>مشروعات تحلية المياه المتكاملة: إقامة وتشغيل وإدارة.</li><li>مشروعات المناطق الحرة التي تتجاوز صادراتها 80%، بالمستندات المحددة من المنطقة الحرة.</li></ul><p><strong>تنبيه:</strong> يجوز إضافة أنشطة أخرى بقرار من الجهة المختصة؛ لذلك لا تعتبر هذه القائمة حصرًا نهائيًا لكل قرار لاحق.</p></div></details></article>
+                <article class="wg-card wg-location"><div class="wg-card-top"><span class="wg-icon" aria-hidden="true">📍</span><span class="wg-max">20%</span></div><h4 data-p18n="wg.loc.title">4. موقع ممارسة النشاط</h4><p data-p18n="wg.loc.text">نقيّم مكان تنفيذ المشروع نفسه، لا عنوان المراسلات أو عنوان إقامة المستثمر. ويجب مطابقة المنطقة الفعلية مع النطاق الوارد بالخريطة المعتمدة.</p><details><summary data-p18n="wg.loc.more">اعرض المناطق الواردة في الوثيقة</summary><div data-p18n="wg.loc.detail" data-p18n-html><ul><li><strong>جنوب محافظة الجيزة:</strong> الواحات البحرية، الصف، العياط.</li><li><strong>إقليم قناة السويس:</strong> بورسعيد، الإسماعيلية، والسويس (شرق القناة وفق صياغة الوثيقة).</li><li><strong>المحافظات الحدودية:</strong> أسوان، مرسى مطروح، جنوب سيناء، شمال سيناء، الوادي الجديد، والبحر الأحمر جنوب سفاجا.</li><li><strong>محافظات الصعيد الواردة:</strong> الفيوم، بني سويف، المنيا، أسيوط، سوهاج، قنا، الأقصر، وأسوان.</li></ul><p>هذه أسماء النطاقات كما وردت في وثيقة الوزن المرفقة، وليست حكمًا بأن كل قطعة أرض أو عنوان داخل المحافظة مستهدف. يلزم التحقق من النطاق الدقيق للموقع.</p></div></details></article>
+              </div>
+              <div class="wg-proof"><span class="wg-proof-icon" aria-hidden="true">✓</span><div><h4 data-p18n="wg.proof.title">شرط مهم مشترك بين النشاط والموقع</h4><p data-p18n="wg.proof.text">حتى إذا كان النشاط أو الموقع مستهدفًا، لا تُحتسب نسبة 20% لمعياره تلقائيًا. يلزم إثبات بدء النشاط أو الجدية من خلال لجنة المعاينة وفق الضوابط. إذا لم يتحقق الإثبات، تكون النسبة الأساسية 10% لذلك المعيار.</p></div></div>
+              <div class="wg-steps"><div><span>01</span><p data-p18n="wg.step1">اجمع مستندات رأس المال وبرنت التأمينات.</p></div><div><span>02</span><p data-p18n="wg.step2">طابق نشاط الشركة الفعلي مع قائمة الأنشطة وشروطها.</p></div><div><span>03</span><p data-p18n="wg.step3">حدد موقع تنفيذ المشروع بدقة وطابق نطاقه الجغرافي.</p></div><div><span>04</span><p data-p18n="wg.step4">تحقق من مستند بدء النشاط أو إثبات الجدية.</p></div></div>
+              <p class="wg-footnote" data-p18n="wg.note">هذا الدليل يشرح الوثيقة المرفقة ولا يصدر اعتمادًا رسميًا لاستهداف النشاط أو الموقع. النتيجة النهائية تخضع للمستندات والضوابط وقرار الجهة المختصة.</p>
+            </section>
+            <!-- The old standalone card-based eligibility checker was removed in v16.
+                 Eligibility guidance now opens only when the user chooses “I don't know”
+                 inside the actual form field, keeping this explanation area unobstructed. -->
+            <div class="weight-grid">
+              <!-- Capital -->
+              <div class="weight-card">
+                <div class="weight-card-header"><div class="weight-card-title" data-p18n="weight.c1.title">1️⃣ رأس المال</div><div class="weight-pct">30%</div></div>
+                <div class="weight-card-body"><div class="weight-tiers">
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.cap.t1.lbl">الحد الأدنى لكل شكل قانوني</span><span class="weight-tier-value">10%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.cap.t2.lbl">أكثر من 1 مليون حتى 5 مليون جنيه</span><span class="weight-tier-value">15%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.cap.t3.lbl">أكثر من 5 حتى 15 مليون جنيه</span><span class="weight-tier-value">20%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.cap.t4.lbl">أكثر من 15 مليون جنيه</span><span class="weight-tier-value">30%</span></div>
+                </div></div>
+              </div>
+              <!-- Labour -->
+              <div class="weight-card">
+                <div class="weight-card-header"><div class="weight-card-title" data-p18n="weight.c2.title">2️⃣ العمالة المصرية</div><div class="weight-pct">30%</div></div>
+                <div class="weight-card-body"><div class="weight-tiers">
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.lab.t1.lbl">أكثر من 500 عامل مؤمن عليه</span><span class="weight-tier-value">30%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.lab.t2.lbl">أكثر من 100 حتى 500 عامل</span><span class="weight-tier-value">20%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.lab.t3.lbl">من 20 حتى 99 عامل</span><span class="weight-tier-value">10%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.lab.t4.lbl">من 5 حتى 19 عامل</span><span class="weight-tier-value">5%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.lab.t5.lbl">بدون عمالة</span><span class="weight-tier-value">0%</span></div>
+                </div></div>
+              </div>
+              <!-- Activity -->
+              <div class="weight-card">
+                <div class="weight-card-header"><div class="weight-card-title" data-p18n="weight.c3.title">3️⃣ نشاط الشركة</div><div class="weight-pct">20%</div></div>
+                <div class="weight-card-body"><div class="weight-tiers">
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.act.t1.lbl">أنشطة مستهدفة بالتنمية (صناعة، تعليم، مستشفيات، سياحة كبرى، بنية أساسية، بترول...)</span><span class="weight-tier-value">20%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.act.t2.lbl">أي نشاط آخر</span><span class="weight-tier-value">10%</span></div>
+                </div></div>
+              </div>
+              <!-- Location -->
+              <div class="weight-card">
+                <div class="weight-card-header"><div class="weight-card-title" data-p18n="weight.c4.title">4️⃣ موقع النشاط</div><div class="weight-pct">20%</div></div>
+                <div class="weight-card-body"><div class="weight-tiers">
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.loc.t1.lbl">داخل الخريطة الاستثمارية المستهدفة (الصعيد، المحافظات الحدودية، قناة السويس، واحات جيزة...)</span><span class="weight-tier-value">20%</span></div>
+                  <div class="weight-tier"><span class="weight-tier-label" data-p18n="wt.loc.t2.lbl">خارج الخريطة المستهدفة</span><span class="weight-tier-value">10%</span></div>
+                </div></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">📊</div><span data-p18n="wt.quota.title">عدد الإقامات وفق الوزن النسبي</span></div>
+              <table class="quota-table">
+                <thead><tr><th data-p18n="wt.quota.col1">الوزن النسبي المحقق</th><th data-p18n="wt.quota.col2">عدد إقامات المستثمرين المستحقة</th></tr></thead>
+                <tbody>
+                  <tr><td data-p18n="wt.quota.r1.score">30% فأكثر (الحد الأدنى)</td><td data-p18n="wt.quota.r1.count">2 إقامات</td></tr>
+                  <tr><td data-p18n="wt.quota.r2.score">أكثر من 50%</td><td data-p18n="wt.quota.r2.count">4 إقامات</td></tr>
+                  <tr><td data-p18n="wt.quota.r3.score">أكثر من 75%</td><td data-p18n="wt.quota.r3.count">6 إقامات</td></tr>
+                  <tr><td data-p18n="wt.quota.r4.score">أكثر من 90%</td><td data-p18n="wt.quota.r4.count">8 إقامات</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="content-group" style="margin-bottom:0">
+              <a href="https://docs.google.com/uc?export=download&id=1E7b-sz_eaPOT3SCIemGYiS2aBBumFh__" class="download-btn" style="max-width:340px;">
+                <div class="dl-icon">📥</div>
+                <div><div class="dl-form-label" style="font-size:.7rem;color:var(--text-muted);margin-bottom:1px;" data-p18n="dl.label.form">نموذج</div><span data-p18n="wt.download">تحميل نموذج الوزن النسبي</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 1: VISA -->
+        <div class="service-section" id="visa">
+          <div class="ss-header">
+            <div class="ss-header-icon">✈️</div>
+            <div class="ss-header-meta">
+              <div class="ss-header-tag" data-p18n="visa.tag">الخدمة الأولى</div>
+              <div class="ss-header-title" data-p18n="visa.title">تأشيرة دخول مستثمر</div>
+              <div class="ss-header-sub" data-p18n="visa.sub">بشركات قانون الاستثمار — للمستثمر خارج البلاد</div>
+            </div>
+            <div class="ss-header-fee"><span class="fee-label" data-p18n="fee.label">مقابل الخدمة</span><span class="fee-value" data-p18n="visa.fee">مجاناً</span></div>
+          </div>
+          <div class="ss-body">
+            <div class="ss-video"><iframe src="https://www.youtube.com/embed/67wsAHM_9Fo" title="تأشيرة دخول مستثمر" allowfullscreen loading="lazy"></iframe></div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">🏢</div><span data-p18n="visa.co.title">أولاً: ضوابط الشركة</span></div>
+              <div class="conditions-list">
+                <div class="condition-item highlight"><span class="ci-bullet">1</span><span data-p18n="visa.co.1">يجب أن تكون الشركة خاضعة لقانون الاستثمار أو حاصلة على قرار تمتع بمزاياه.</span></div>
+                <div class="condition-item"><span class="ci-bullet">2</span><span data-p18n="visa.co.2">يجب أن تستوفي الشركة الحد الأدنى للوزن النسبي <strong>30% على الأقل</strong>.</span></div>
+                <div class="condition-item"><span class="ci-bullet">3</span><span data-p18n="visa.co.3">الشركات المؤسسة حديثاً (أقل من عام) لا يُشترط إثبات بدء النشاط أو الجدية.</span></div>
+                <div class="condition-item"><span class="ci-bullet">4</span><span data-p18n="visa.co.4">الشركات التي مرّ عليها عام ولم تبدأ النشاط يجب أن تُثبت جدية التنفيذ على الأقل.</span></div>
+                <div class="condition-item"><span class="ci-bullet">5</span><span data-p18n="visa.co.5">الشركات التي بدأت النشاط يجب ألا يمر خمس سنوات على آخر لجنة معاينة أو استمراريتها.</span></div>
+                <div class="condition-item"><span class="ci-bullet">6</span><span data-p18n="visa.co.6">شركات الشخص الواحد والمنشآت الفردية غير المثبتة للنشاط: وديعة دولارية <strong>200,000 دولار</strong> مجمدة.</span></div>
+                <div class="condition-item"><span class="ci-bullet">7</span><span data-p18n="visa.co.7">الشركات الصناعية: يجب أن يكون سند الحيازة مصدقاً من الشهر العقاري أو موافقة جهة الولاية.</span></div>
+                <div class="condition-item"><span class="ci-bullet">8</span><span data-p18n="visa.co.8">شركات المناطق الحرة والاستثمارية: يجب أن تكون رخصة المزاولة سارية.</span></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">👤</div><span data-p18n="visa.inv.title">ثانياً: ضوابط المستثمر</span></div>
+              <div class="conditions-list">
+                <div class="condition-item highlight"><span class="ci-bullet">1</span><span data-p18n="visa.inv.1">يجب أن يتمتع المستثمر بصفتين معاً: <strong>(شريك أو مساهم)</strong> + <strong>(عضو مجلس إدارة أو له حق الإدارة)</strong>.</span></div>
+                <div class="condition-item"><span class="ci-bullet">2</span><span data-p18n="visa.inv.2">المستثمر الذي سبق له الحصول على إقامة على شركة أخرى يجب أن يُثبت جدية أيٍّ من الشركتين.</span></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">📄</div><span data-p18n="visa.docs.title">المستندات المطلوبة</span></div>
+              <div class="docs-list">
+                <div class="doc-item"><span class="doc-icon">📝</span><span data-p18n="visa.doc.1">طلب على مطبوعات الشركة باسم رئيس قطاع خدمات الاستثمار وفق النموذج الاسترشادي.</span></div>
+                <div class="doc-item"><span class="doc-icon">🛂</span><span data-p18n="visa.doc.2"><strong>2 صورة ضوئية</strong> من جواز سفر المستثمر. يجب أن يكون ساري المفعول بمدة لا تقل عن <strong>6 أشهر</strong>.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏪</span><span data-p18n="visa.doc.3">صورة ضوئية من <strong>مستخرج حديث من السجل التجاري</strong> مجدد (لم يمر عليه 3 أشهر) + الأصل.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏛️</span><span data-p18n="visa.doc.4">لشركات المساهمة فقط: صورة من <strong>جمعية عامة معتمدة بتجديد مدة مجلس الإدارة</strong> + الأصل.</span></div>
+                <div class="doc-item"><span class="doc-icon">⚖️</span><span data-p18n="visa.doc.5">نموذج الوزن النسبي مستوفى مع المستندات الدالة على المعايير الأربعة.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏦</span><span data-p18n="visa.doc.6">شهادة إيداع بنكي أو شهادة من قطاع الأداء الاقتصادي أو رأس المال المؤدى.</span></div>
+                <div class="doc-item"><span class="doc-icon">📋</span><span data-p18n="visa.doc.7">خطاب تأمينات حديث (لم يمر عليه شهر) بختم النسر.</span></div>
+                <div class="doc-item"><span class="doc-icon">🔍</span><span data-p18n="visa.doc.8">للمشروعات التي مرّ عليها عام ولم تبدأ: <strong>لجنة معاينة (موقف تنفيذي)</strong> + المستند الدال.</span></div>
+                <div class="doc-item"><span class="doc-icon">✅</span><span data-p18n="visa.doc.9">للمشروعات التي بدأت: صورة من <strong>شهادة بداية النشاط</strong>.</span></div>
+                <div class="doc-item"><span class="doc-icon">📜</span><span data-p18n="visa.doc.10">أحدث مستند معتمد على <strong>امتلاك الأجنبي لأسهم/حصص</strong>.</span></div>
+                <div class="doc-item"><span class="doc-icon">🖊️</span><span data-p18n="visa.doc.11">أحدث مستند على <strong>حق الأجنبي في الإدارة والتوقيع</strong>.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏠</span><span data-p18n="visa.doc.12">صورة من <strong>سند الحيازة</strong> موثق ومصدق + الأصل.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏭</span><span data-p18n="visa.doc.13">للمناطق الحرة/الاستثمارية: صورة من <strong>ترخيص المزاولة</strong> الساري.</span></div>
+                <div class="doc-item"><span class="doc-icon">⚡</span><span data-p18n="visa.doc.14">توكيل رسمي بالشهر العقاري أو تفويض مع إثبات صحة التوقيع من البنك.</span></div>
+                <div class="doc-item" style="background:var(--gold-pale);border-color:rgba(249,115,22,.35);"><span class="doc-icon">📧</span><span data-p18n="visa.doc.email">إرسال <strong>نسخة PDF</strong> على: <strong>gov_ser@gafinet.org.eg</strong> أو واتساب: <strong>01154202333</strong>.</span></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">🚶</div><span data-p18n="visa.steps.title">خطوات الحصول على الخدمة</span></div>
+              <div class="steps-list">
+                <div class="step-item"><div class="step-num">1</div><div class="step-body"><p data-p18n="visa.step.1">اختر الخدمة من <strong>ماكينة الأرقام</strong> وتوجه إلى الشباك <strong>(11-12)</strong>.</p></div></div>
+                <div class="step-item"><div class="step-num">2</div><div class="step-body"><p data-p18n="visa.step.2">بعد قبول الطلب، تقوم الإدارة بمخاطبة الجهات المعنية للحصول على الموافقات.</p><span class="step-time" data-p18n="visa.step.2.time">⏱ زمن الأداء: يومان</span></div></div>
+                <div class="step-item"><div class="step-num">3</div><div class="step-body"><p data-p18n="visa.step.3">انتظار ورود رد بالموافقة من الجهات المعنية.</p><span class="step-time" data-p18n="visa.step.3.time">⏱ متوسط الانتظار: 10 أيام عمل</span></div></div>
+                <div class="step-item"><div class="step-num">4</div><div class="step-body"><p data-p18n="visa.step.4">بعد الموافقة، تُخاطب الإدارة العامة للجوازات.</p><span class="step-time" data-p18n="visa.step.4.time">⏱ زمن الأداء: يومان</span></div></div>
+                <div class="step-item"><div class="step-num">5</div><div class="step-body"><p data-p18n="visa.step.5">إخطارك عبر <strong>واتساب</strong> برقم وتاريخ مخاطبة الجوازات.</p><span class="step-time" data-p18n="visa.step.5.time">⏱ متوسط رد الجوازات: أسبوعان إلى ثلاثة</span></div></div>
+                <div class="step-item"><div class="step-num">6</div><div class="step-body"><p data-p18n="visa.step.6">فور الموافقة، يُخطَر طالب التأشيرة ويحق له الدخول خلال <strong>3 أشهر</strong>.</p></div></div>
+              </div>
+            </div>
+            <div class="content-group" style="margin-bottom:0">
+              <div class="content-group-title"><div class="cg-icon">📥</div><span data-p18n="visa.dl.title">النماذج والمرفقات</span></div>
+              <div class="downloads-grid">
+                <a href="https://docs.google.com/uc?export=download&id=17zv4zeqz-BLM0BfA7eGoUuo3qzgYeUYT" class="download-btn"><div class="dl-icon">📄</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="visa.dl.1">طلب تأشيرة دخول مستثمر</span></div></a>
+                <a href="https://docs.google.com/uc?export=download&id=1WqwEtbDIcWXosfxUs7ZDj1YUL_VoAHyg" class="download-btn"><div class="dl-icon">📋</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="visa.dl.2">نموذج استرشادي</span></div></a>
+                <a href="https://drive.google.com/uc?export=download&id=1zxXfiZSaRwOHzocYNoEEukZ0RgkI0eMR" class="download-btn"><div class="dl-icon">📊</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="visa.dl.3">نموذج الوزن النسبي</span></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 2: GRANT -->
+        <div class="service-section" id="grant">
+          <div class="ss-header">
+            <div class="ss-header-icon">🏠</div>
+            <div class="ss-header-meta">
+              <div class="ss-header-tag" data-p18n="grant.tag">الخدمة الثانية</div>
+              <div class="ss-header-title" data-p18n="grant.title">منح إقامة مستثمر</div>
+              <div class="ss-header-sub" data-p18n="grant.sub">بشركات قانون الاستثمار — لأول مرة</div>
+            </div>
+            <div class="ss-header-fee"><span class="fee-label" data-p18n="fee.label">مقابل الخدمة</span><span class="fee-value" data-p18n="grant.fee">1,500 جنيه</span></div>
+          </div>
+          <div class="ss-body">
+            <div class="ss-video"><iframe src="https://www.youtube.com/embed/l7RoskBfszE" title="منح إقامة مستثمر" allowfullscreen loading="lazy"></iframe></div>
+            <div class="info-block" data-p18n="grant.info">⚠️ ضوابط منح وتجديد الإقامة ومدتها...</div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">🏢</div><span data-p18n="grant.co.title">أولاً: ضوابط الشركة</span></div>
+              <div class="conditions-list">
+                <div class="condition-item highlight"><span class="ci-bullet">1</span><span data-p18n="grant.co.1">يجب أن تكون الشركة خاضعة لقانون الاستثمار أو حاصلة على قرار تمتع.</span></div>
+                <div class="condition-item"><span class="ci-bullet">2</span><span data-p18n="grant.co.2">استيفاء الحد الأدنى للوزن النسبي <strong>30% على الأقل</strong>.</span></div>
+                <div class="condition-item"><span class="ci-bullet">3</span><span data-p18n="grant.co.3">الشركات المؤسسة حديثاً (أقل من عام): لا يُشترط إثبات بدء النشاط أو الجدية.</span></div>
+                <div class="condition-item"><span class="ci-bullet">4</span><span data-p18n="grant.co.4">الشركات التي مرّ عليها عام ولم تبدأ: إثبات الجدية.</span></div>
+                <div class="condition-item"><span class="ci-bullet">5</span><span data-p18n="grant.co.5">الشركات التي بدأت النشاط: ألا يمر 5 سنوات على آخر لجنة.</span></div>
+                <div class="condition-item"><span class="ci-bullet">6</span><span data-p18n="grant.co.6">شركة الشخص الواحد غير المثبتة للنشاط: وديعة دولارية <strong>200,000 دولار</strong> مجمدة.</span></div>
+                <div class="condition-item"><span class="ci-bullet">7</span><span data-p18n="grant.co.7">الشركات الصناعية: سند حيازة مصدق.</span></div>
+                <div class="condition-item"><span class="ci-bullet">8</span><span data-p18n="grant.co.8">شركات المناطق الحرة/الاستثمارية: رخصة مزاولة سارية.</span></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">👤</div><span data-p18n="grant.inv.title">ثانياً: ضوابط المستثمر</span></div>
+              <div class="conditions-list">
+                <div class="condition-item highlight"><span class="ci-bullet">1</span><span data-p18n="grant.inv.1">الصفتان معاً: <strong>(شريك/مساهم) + (حق الإدارة)</strong>.</span></div>
+                <div class="condition-item"><span class="ci-bullet">2</span><span data-p18n="grant.inv.2">من سبق له الحصول على إقامة على شركة أخرى: إثبات الجدية.</span></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">📄</div><span data-p18n="grant.docs.title">المستندات المطلوبة</span></div>
+              <div class="docs-list">
+                <div class="doc-item"><span class="doc-icon">📝</span><span data-p18n="grant.doc.1">طلب على مطبوعات الشركة وفق النموذج الاسترشادي لمنح إقامة مستثمر.</span></div>
+                <div class="doc-item"><span class="doc-icon">🛂</span><span data-p18n="grant.doc.2"><strong>1 صورة</strong> من جواز سفر المستثمر.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏪</span><span data-p18n="grant.doc.3">مستخرج حديث من السجل التجاري (لم يمر عليه 3 أشهر).</span></div>
+                <div class="doc-item"><span class="doc-icon">🏛️</span><span data-p18n="grant.doc.4">لشركات المساهمة: جمعية عامة معتمدة بتجديد مجلس الإدارة + الأصل.</span></div>
+                <div class="doc-item"><span class="doc-icon">⚖️</span><span data-p18n="grant.doc.5">نموذج الوزن النسبي مستوفى مع مستنداته.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏦</span><span data-p18n="grant.doc.6">شهادة إيداع بنكي أو شهادة أداء اقتصادي أو رأس مال مؤدى.</span></div>
+                <div class="doc-item"><span class="doc-icon">📋</span><span data-p18n="grant.doc.7">خطاب تأمينات حديث بختم النسر.</span></div>
+                <div class="doc-item"><span class="doc-icon">🔍</span><span data-p18n="grant.doc.8">للمشروعات غير المبدئة: لجنة معاينة + المستند الدال.</span></div>
+                <div class="doc-item"><span class="doc-icon">✅</span><span data-p18n="grant.doc.9">للمشروعات المبدئة: شهادة بداية النشاط.</span></div>
+                <div class="doc-item"><span class="doc-icon">📜</span><span data-p18n="grant.doc.10">مستند معتمد على امتلاك الأجنبي للأسهم/الحصص.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏠</span><span data-p18n="grant.doc.11">سند الحيازة موثق ومصدق + الأصل.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏭</span><span data-p18n="grant.doc.12">ترخيص المزاولة (للمناطق الحرة/الاستثمارية).</span></div>
+                <div class="doc-item"><span class="doc-icon">⚡</span><span data-p18n="grant.doc.13">توكيل رسمي أو تفويض معتمد.</span></div>
+                <div class="doc-item"><span class="doc-icon">💰</span><span data-p18n="grant.doc.14">إيصال سداد رسم الخدمة <strong>1,500 جنيه للفرد</strong>.</span></div>
+                <div class="doc-item" style="background:var(--gold-pale);border-color:rgba(249,115,22,.35);"><span class="doc-icon">📧</span><span data-p18n="grant.doc.email">إرسال PDF على البريد أو واتساب.</span></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">🚶</div><span data-p18n="grant.steps.title">خطوات الحصول على الخدمة</span></div>
+              <div class="steps-list">
+                <div class="step-item"><div class="step-num">1</div><div class="step-body"><p data-p18n="grant.step.1">تقديم الطلب مستوفياً الضوابط من شباك الإدارة <strong>(11-12)</strong>.</p></div></div>
+                <div class="step-item"><div class="step-num">2</div><div class="step-body"><p data-p18n="grant.step.2">بعد الفحص، تُخاطَب الجهات المعنية للحصول على الموافقات.</p><span class="step-time" data-p18n="grant.step.2.time">⏱ يومان</span></div></div>
+                <div class="step-item"><div class="step-num">3</div><div class="step-body"><p data-p18n="grant.step.3">انتظار رد الجهات المعنية بالموافقة.</p><span class="step-time" data-p18n="grant.step.3.time">⏱ متوسط 10 أيام عمل</span></div></div>
+                <div class="step-item"><div class="step-num">4</div><div class="step-body"><p data-p18n="grant.step.4">بعد الموافقة، تُرسل توصية الإقامة إلى <strong>الجوازات والهجرة والجنسية</strong>.</p><span class="step-time" data-p18n="grant.step.4.time">⏱ يومان</span></div></div>
+                <div class="step-item"><div class="step-num">5</div><div class="step-body"><p data-p18n="grant.step.5">إخطارك عبر <strong>واتساب</strong> برقم وتاريخ توصية الإقامة.</p></div></div>
+              </div>
+            </div>
+            <div class="content-group" style="margin-bottom:0">
+              <div class="content-group-title"><div class="cg-icon">📥</div><span data-p18n="grant.dl.title">النماذج والمرفقات</span></div>
+              <div class="downloads-grid">
+                <a href="https://docs.google.com/uc?export=download&id=1ewNhM3RvrmfQVOGvFnf0vtL_uJF7gDod" class="download-btn"><div class="dl-icon">📄</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="grant.dl.1">طلب منح إقامة مستثمر</span></div></a>
+                <a href="https://docs.google.com/uc?export=download&id=14NBF-mU6a7UT6VSFkWCjM7_Th3dUE3ON" class="download-btn"><div class="dl-icon">📋</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="grant.dl.2">نموذج استرشادي</span></div></a>
+                <a href="https://drive.google.com/uc?export=download&id=1zxXfiZSaRwOHzocYNoEEukZ0RgkI0eMR" class="download-btn"><div class="dl-icon">📊</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="grant.dl.3">نموذج الوزن النسبي</span></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 3: RENEW -->
+        <div class="service-section" id="renew">
+          <div class="ss-header">
+            <div class="ss-header-icon">🔄</div>
+            <div class="ss-header-meta">
+              <div class="ss-header-tag" data-p18n="renew.tag">الخدمة الثالثة</div>
+              <div class="ss-header-title" data-p18n="renew.title">تجديد إقامة مستثمر</div>
+              <div class="ss-header-sub" data-p18n="renew.sub">بشركات قانون الاستثمار</div>
+            </div>
+            <div class="ss-header-fee"><span class="fee-label" data-p18n="fee.label">مقابل الخدمة</span><span class="fee-value" data-p18n="renew.fee">1,500 جنيه</span></div>
+          </div>
+          <div class="ss-body">
+            <div class="ss-video"><iframe src="https://www.youtube.com/embed/AL_4Q2UtQZc" title="تجديد إقامة مستثمر" allowfullscreen loading="lazy"></iframe></div>
+            <div class="info-block" data-p18n="renew.info">💡 في حال تجديد الإقامة وقد تم منحها برقم صادر مرة سابقة...</div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">📄</div><span data-p18n="renew.docs.title">المستندات المطلوبة</span></div>
+              <div class="docs-list">
+                <div class="doc-item"><span class="doc-icon">📝</span><span data-p18n="renew.doc.1">طلب على مطبوعات الشركة وفق النموذج الاسترشادي لتجديد إقامة مستثمر.</span></div>
+                <div class="doc-item"><span class="doc-icon">🛂</span><span data-p18n="renew.doc.2"><strong>1 صورة</strong> من جواز السفر موضحاً به الإقامة السابقة.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏪</span><span data-p18n="renew.doc.3">مستخرج حديث من السجل التجاري (لم يمر عليه 3 أشهر).</span></div>
+                <div class="doc-item"><span class="doc-icon">🏛️</span><span data-p18n="renew.doc.4">لشركات المساهمة: جمعية عامة معتمدة بتجديد مجلس الإدارة + الأصل.</span></div>
+                <div class="doc-item"><span class="doc-icon">⚖️</span><span data-p18n="renew.doc.5">نموذج الوزن النسبي مستوفى للمعايير الأربعة.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏦</span><span data-p18n="renew.doc.6">شهادة إيداع بنكي أو شهادة أداء اقتصادي أو رأس مال مؤدى.</span></div>
+                <div class="doc-item"><span class="doc-icon">📋</span><span data-p18n="renew.doc.7">خطاب تأمينات حديث بختم النسر.</span></div>
+                <div class="doc-item"><span class="doc-icon">🔍</span><span data-p18n="renew.doc.8">للمشروعات غير المبدئة: لجنة معاينة + المستند الدال.</span></div>
+                <div class="doc-item"><span class="doc-icon">✅</span><span data-p18n="renew.doc.9">للمشروعات المبدئة: شهادة بداية النشاط.</span></div>
+                <div class="doc-item"><span class="doc-icon">📜</span><span data-p18n="renew.doc.10">أحدث مستند على امتلاك الأجنبي للأسهم/الحصص.</span></div>
+                <div class="doc-item"><span class="doc-icon">🖊️</span><span data-p18n="renew.doc.11">أحدث مستند على حق الأجنبي في الإدارة والتوقيع.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏠</span><span data-p18n="renew.doc.12">سند الحيازة موثق ومصدق + الأصل.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏭</span><span data-p18n="renew.doc.13">ترخيص المزاولة (للمناطق الحرة/الاستثمارية).</span></div>
+                <div class="doc-item"><span class="doc-icon">⚡</span><span data-p18n="renew.doc.14">توكيل رسمي أو تفويض معتمد.</span></div>
+                <div class="doc-item"><span class="doc-icon">💰</span><span data-p18n="renew.doc.15">إيصال سداد رسم التجديد <strong>1,500 جنيه للفرد</strong>.</span></div>
+                <div class="doc-item" style="background:var(--gold-pale);border-color:rgba(249,115,22,.35);"><span class="doc-icon">📧</span><span data-p18n="renew.doc.email">إرسال PDF على البريد أو واتساب.</span></div>
+              </div>
+            </div>
+            <div class="content-group" style="margin-bottom:0">
+              <div class="content-group-title"><div class="cg-icon">📥</div><span data-p18n="renew.dl.title">النماذج والمرفقات</span></div>
+              <div class="downloads-grid">
+                <a href="https://docs.google.com/uc?export=download&id=1T1QXbwZ-uxzWUn_aNjHPIRONbw3Ga3cx" class="download-btn"><div class="dl-icon">📄</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="renew.dl.1">طلب تجديد إقامة مستثمر</span></div></a>
+                <a href="https://docs.google.com/uc?export=download&id=1IBwGB2nKUtt9tKudjKrqnxhVlxGvGI0i" class="download-btn"><div class="dl-icon">📋</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="renew.dl.2">نموذج استرشادي</span></div></a>
+                <a href="https://drive.google.com/uc?export=download&id=1zxXfiZSaRwOHzocYNoEEukZ0RgkI0eMR" class="download-btn"><div class="dl-icon">📊</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="renew.dl.3">نموذج الوزن النسبي</span></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 4: MOVEMENT -->
+        <div class="service-section" id="movement">
+          <div class="ss-header">
+            <div class="ss-header-icon">🗺️</div>
+            <div class="ss-header-meta">
+              <div class="ss-header-tag" data-p18n="move.tag">الخدمة الرابعة</div>
+              <div class="ss-header-title" data-p18n="move.title">شهادة تحركات المستثمر</div>
+              <div class="ss-header-sub" data-p18n="move.sub">بشركات قانون الاستثمار</div>
+            </div>
+            <div class="ss-header-fee"><span class="fee-label" data-p18n="fee.label">مقابل الخدمة</span><span class="fee-value" data-p18n="move.fee">مجاناً</span></div>
+          </div>
+          <div class="ss-body">
+            <div class="info-block" data-p18n="move.info">📌 <strong>ملاحظة هامة:</strong> شهادة التحركات لا تُلغي الإقامة...</div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">⚙️</div><span data-p18n="move.cond.title">الضوابط</span></div>
+              <div class="conditions-list">
+                <div class="condition-item highlight"><span class="ci-bullet">!</span><span data-p18n="move.cond.1">يجب إلغاء إقامة المستثمر <strong>قبل</strong> تقديم الطلب، ومنحه أسبوعاً للسفر.</span></div>
+                <div class="condition-item"><span class="ci-bullet">2</span><span data-p18n="move.cond.2">في حال سريان الإقامة ومغادرة المستثمر، يظل على كفالة الشركة.</span></div>
+                <div class="condition-item"><span class="ci-bullet">3</span><span data-p18n="move.cond.3">الإقامة تسقط في حال المغادرة وعدم العودة لمدة 6 أشهر متصلة.</span></div>
+              </div>
+            </div>
+            <div class="content-group">
+              <div class="content-group-title"><div class="cg-icon">📄</div><span data-p18n="move.docs.title">المستندات المطلوبة</span></div>
+              <div class="docs-list">
+                <div class="doc-item"><span class="doc-icon">📝</span><span data-p18n="move.doc.1">طلب موقع من رئيس مجلس الإدارة موضحاً: اسم المستثمر، جنسيته، صفته.</span></div>
+                <div class="doc-item"><span class="doc-icon">🛂</span><span data-p18n="move.doc.2">صورة جواز السفر + صورة بطاقة الإقامة (شريطة انتهاء مدتها).</span></div>
+                <div class="doc-item"><span class="doc-icon">✈️</span><span data-p18n="move.doc.3">يُفضَّل تقديم صورة من <strong>تذكرة الطيران</strong>.</span></div>
+                <div class="doc-item"><span class="doc-icon">⚡</span><span data-p18n="move.doc.4">توكيل رسمي أو تفويض معتمد.</span></div>
+                <div class="doc-item"><span class="doc-icon">🏢</span><span data-p18n="move.doc.5">طلبات المناطق الحرة ترد على خطاب المنطقة.</span></div>
+                <div class="doc-item" style="background:var(--gold-pale);border-color:rgba(249,115,22,.35);"><span class="doc-icon">📧</span><span data-p18n="move.doc.email">إرسال PDF على البريد أو واتساب.</span></div>
+              </div>
+            </div>
+            <div class="content-group" style="margin-bottom:0">
+              <div class="content-group-title"><div class="cg-icon">📥</div><span data-p18n="move.dl.title">النماذج</span></div>
+              <div class="downloads-grid">
+                <a href="https://docs.google.com/uc?export=download&id=1T1QXbwZ-uxzWUn_aNjHPIRONbw3Ga3cx" class="download-btn"><div class="dl-icon">📄</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="move.dl.1">طلب شهادة تحركات</span></div></a>
+                <a href="https://docs.google.com/uc?export=download&id=1IBwGB2nKUtt9tKudjKrqnxhVlxGvGI0i" class="download-btn"><div class="dl-icon">📋</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="move.dl.2">نموذج استرشادي</span></div></a>
+                <a href="https://drive.google.com/uc?export=download&id=1zxXfiZSaRwOHzocYNoEEukZ0RgkI0eMR" class="download-btn"><div class="dl-icon">📊</div><div><div style="font-size:.7rem;color:var(--text-muted)" data-p18n="dl.label.form">نموذج</div><span data-p18n="move.dl.3">نموذج الوزن النسبي</span></div></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /page-main -->
+
+      <!-- SIDEBAR -->
+      <aside class="page-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">🏠 <span data-p18n="sb.services.title">خدمات إقامة المستثمر</span></div>
+          <div class="sidebar-card-body">
+            <div class="sidebar-links">
+              <a class="sidebar-link active" href="#visa">✈️ <span data-p18n="subnav.visa">تأشيرة دخول مستثمر</span></a>
+              <a class="sidebar-link" href="#grant">🏠 <span data-p18n="subnav.grant">منح إقامة مستثمر</span></a>
+              <a class="sidebar-link" href="#renew">🔄 <span data-p18n="subnav.renew">تجديد إقامة مستثمر</span></a>
+              <a class="sidebar-link" href="#movement">🗺️ <span data-p18n="subnav.movement">شهادة تحركات</span></a>
+              <a class="sidebar-link" href="#weight">⚖️ <span data-p18n="subnav.weight">الوزن النسبي</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">💳 <span data-p18n="sb.fees.title">ملخص الرسوم</span></div>
+          <div class="sidebar-card-body">
+            <div class="fees-list">
+              <div class="fee-row"><span class="fee-row-label" data-p18n="sb.fee.visa">تأشيرة دخول مستثمر</span><span class="fee-row-val free" data-p18n="sb.free">مجاناً</span></div>
+              <div class="fee-row"><span class="fee-row-label" data-p18n="sb.fee.grant">منح إقامة مستثمر</span><span class="fee-row-val" data-p18n="sb.fee.1500">1,500 جنيه</span></div>
+              <div class="fee-row"><span class="fee-row-label" data-p18n="sb.fee.renew">تجديد إقامة مستثمر</span><span class="fee-row-val" data-p18n="sb.fee.1500">1,500 جنيه</span></div>
+              <div class="fee-row"><span class="fee-row-label" data-p18n="sb.fee.movement">شهادة تحركات</span><span class="fee-row-val free" data-p18n="sb.free">مجاناً</span></div>
+              <div class="fee-row" style="background:var(--gold-pale);border-color:rgba(249,115,22,.3);"><span class="fee-row-label" data-p18n="sb.fee.vip">خدمة VIP مسار سريع</span><span class="fee-row-val" style="color:var(--gold)" data-p18n="sb.fee.10000">10,000 جنيه</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">📞 <span data-p18n="sb.contact.title">التواصل مع الإدارة</span></div>
+          <div class="sidebar-card-body">
+            <div class="contact-info">
+              <div class="contact-row"><div class="contact-icon">📧</div><div><span class="contact-label" data-p18n="sb.contact.email.lbl">البريد الإلكتروني</span><a href="mailto:gov_ser@gafinet.org.eg" class="contact-val">gov_ser@gafinet.org.eg</a></div></div>
+              <div class="contact-row"><div class="contact-icon">💬</div><div><span class="contact-label" data-p18n="sb.contact.wa.lbl">واتساب</span><a href="https://wa.me/201154202333" class="contact-val" target="_blank">01154202333</a></div></div>
+              <div class="contact-row"><div class="contact-icon">📞</div><div><span class="contact-label" data-p18n="sb.contact.phone.lbl">خط ساخن</span><a href="tel:16035" class="contact-val">16035</a></div></div>
+              <div class="contact-row"><div class="contact-icon">🏢</div><div><span class="contact-label" data-p18n="sb.contact.desk.lbl">الشباك المختص</span><span class="contact-val" data-p18n="sb.contact.desk.val">شباك 11-12 | الدور الأرضي | المبنى الخلفي</span></div></div>
+              <div class="contact-row"><div class="contact-icon">🕐</div><div><span class="contact-label" data-p18n="sb.contact.hours.lbl">أوقات العمل</span><span class="contact-val" data-p18n="sb.contact.hours.val">الأحد – الخميس | 9 ص – 3 م</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-card-header">🔗 <span data-p18n="sb.other.title">خدمات أخرى</span></div>
+          <div class="sidebar-card-body">
+            <div class="sidebar-links">
+              <a class="sidebar-link" href="work-permits.html">📋 <span data-i18n="nav.work">تراخيص العمل للعمال</span></a>
+              <a class="sidebar-link" href="investor-car.html">🚗 <span data-i18n="nav.car">سيارة المستثمر</span></a>
+              <a class="sidebar-link" href="dependents.html">🧹 <span data-i18n="nav.dependents">إقامة التابعات (عمالة منزلية)</span></a>
+              <a class="sidebar-link" href="partner-permit.html">🤝 <span data-i18n="nav.partner">ترخيص غير مساهم</span></a>
+              <a class="sidebar-link" href="law159.html">⚖️ <span data-i18n="nav.law159">ترخيص قانون 159</span></a>
+              <a class="sidebar-link" href="branches.html">🌐 <span data-i18n="nav.branches">فروع الشركات الأجنبية</span></a>
+              <a class="sidebar-link" href="offices.html">🏢 <span data-i18n="nav.offices">مكاتب التمثيل</span></a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-emblem"><svg viewBox="0 0 80 80" fill="none" width="28" height="28"><path d="M40 10 C28 10 18 18 15 30 L12 30 L10 24 L8 30 C6 32 6 36 8 38 L12 38 C13 44 17 50 22 54 L22 62 L30 60 L32 64 L40 62 L48 64 L50 60 L58 62 L58 54 C63 50 67 44 68 38 L72 38 C74 36 74 32 72 30 L70 24 L68 30 L65 30 C62 18 52 10 40 10Z" fill="#F97316"/></svg></div>
+          <div class="footer-logo-text" data-i18n="logo.name">الإدارة العامة للخدمات الحكومية</div>
+        </div>
+        <p class="footer-brand-desc" data-i18n="footer.desc">الإدارة المعنية بخدمة المستثمرين الأجانب في مصر.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-p18n="footer.residency">خدمات الإقامة</h4>
+        <ul class="footer-links">
+          <li><a href="#visa" data-p18n="subnav.visa">تأشيرة دخول مستثمر</a></li>
+          <li><a href="#grant" data-p18n="subnav.grant">منح إقامة مستثمر</a></li>
+          <li><a href="#renew" data-p18n="subnav.renew">تجديد إقامة مستثمر</a></li>
+          <li><a href="#movement" data-p18n="subnav.movement">شهادة تحركات</a></li>
+          <li><a href="#weight" data-p18n="subnav.weight">الوزن النسبي</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact.title">تواصل معنا</h4>
+        <ul class="footer-links">
+          <li><a href="tel:16035" data-p18n="sb.contact.phone.link">خط ساخن: 16035</a></li>
+          <li><a href="mailto:gov_ser@gafinet.org.eg">gov_ser@gafinet.org.eg</a></li>
+          <li><a href="https://wa.me/201154202333" target="_blank" data-p18n="sb.contact.wa.link">واتساب: 01154202333</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">© 2025 الإدارة العامة للخدمات الحكومية</span>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script src="../js/main.js"></script>
+<script src="../js/investor-residency.js"></script>
+<script src="../js/jszip.min.js"></script>
+<script>window.GOVESER_ADVISOR_CONFIG={ttsEndpoint:'http://localhost:8787/tts',strictMale:true,ttsAlways:true,debug:true};</script>
+<script src="../js/advisor-face.js?v=2"></script>
+<script src="../js/advisor.js?v=11"></script>
+<script src="../js/residency-forms.js?v=37"></script>
+<script>
+  // Sub-nav & sidebar active on scroll
+  const sections = document.querySelectorAll('.service-section[id]');
+  const subLinks = document.querySelectorAll('.subnav-link');
+  const sideLinks = document.querySelectorAll('.sidebar-link[href^="#"]');
+  function updateActive() {
+    let current = '';
+    sections.forEach(sec => { if (window.scrollY + 160 >= sec.offsetTop) current = sec.id; });
+    subLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+    sideLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+  }
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+
+  // v16: eligibility guidance is integrated into the form fields; no standalone card checker.
+</script>
+</body>
+</html>
