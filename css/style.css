@@ -1476,3 +1476,102 @@ body.lang-en .rf-documents ol { padding-inline-start: 24px; padding-inline-end: 
 .adv-plate .adv-b-id small{overflow:hidden;text-overflow:ellipsis}
 .adv-plate{gap:8px}
 @media (prefers-reduced-motion:reduce){.adv-vb-listen.is-playing{box-shadow:0 0 0 2px #f97316}}
+
+
+/* ============================================================
+   MOBILE LAYOUT FIXES — v45
+   إصلاح التنسيق على الجوال: عرض زائد في الهيدر، شريط الأدوات،
+   الحشوات، ترتيب العمود الجانبي، وتداخل العناصر الثابتة.
+   ============================================================ */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+img, svg, video, canvas, iframe { max-width: 100%; }
+.logo > div:last-child { min-width: 0; }
+
+/* زر القائمة: إزالة مظهر الزر الافتراضي للمتصفح */
+.menu-btn {
+  border: 0;
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 992px) {
+  /* الشريط العلوي يصبح عاديًا (غير ثابت) حتى لا يتداخل مع الهيدر الثابت */
+  .utility-bar { position: static; }
+  .site-header { top: 0; }
+  body .service-subnav { top: var(--hdr-h, 67px); }
+  body .service-section { scroll-margin-top: calc(var(--hdr-h, 67px) + 64px); }
+
+  /* الشريط الجانبي (الرسوم/التواصل) بعد المحتوى الرئيسي لا قبله */
+  .page-layout .page-sidebar { order: 2; }
+
+  /* زر الصعود لا يختبئ خلف لوحة المرشد السفلية */
+  .scroll-top { left: 16px; bottom: 16px; width: 40px; height: 40px; }
+  body.lang-en .scroll-top { left: auto; right: 16px; }
+  body.adv-dock-open .scroll-top { bottom: calc(var(--adv-dock-h, 150px) + 12px); }
+}
+
+@media (max-width: 600px) {
+  .container { padding-inline: 16px; }
+
+  /* الشريط العلوي */
+  .utility-bar { padding: 8px 0; }
+  .utility-bar .container { gap: 6px; }
+  .utility-right, .utility-left {
+    flex-wrap: wrap; justify-content: center; gap: 4px 12px; width: 100%;
+  }
+  .utility-right > span:not([data-i18n]),
+  .utility-left  > span:not([data-i18n]) { display: none; }
+  .lang-btn { padding: 5px 14px; }
+
+  /* الهيدر: الشعار يتقلص بدل أن يدفع الصفحة للعرض */
+  .site-header .container { gap: 10px; padding-top: 10px; padding-bottom: 10px; }
+  .logo { flex: 1 1 auto; min-width: 0; gap: 10px; }
+  .logo-emblem { width: 44px; height: 44px; }
+  .logo-emblem svg { width: 26px; height: 26px; }
+  .logo-text-ar { font-size: .92rem; line-height: 1.35; }
+  .logo-text-en { display: none; }
+  .logo-sub { font-size: .7rem; }
+
+  /* الغلاف العلوي للصفحة */
+  body .page-hero { padding: 28px 0 26px; }
+  body .breadcrumb { font-size: .75rem; margin-bottom: 14px; }
+  body .page-hero-desc { font-size: .9rem; line-height: 1.85; margin-bottom: 18px; }
+  body .hero-chips { flex-direction: column; align-items: stretch; gap: 8px; }
+  body .hero-chips .chip { justify-content: center; text-align: center; border-radius: 14px; font-size: .78rem; }
+
+  /* المسافات العامة */
+  .residency-start { padding: 24px 0 20px; }
+  body .page-body { padding: 24px 0 56px; }
+  body .service-section { margin-bottom: 18px; border-radius: 16px; }
+  body .ss-header { padding: 16px; gap: 12px; }
+  body .ss-header-icon { width: 42px; height: 42px; font-size: 1.2rem; }
+  body .ss-body { padding: 16px; }
+  .rf-card { padding: 16px 14px; }
+
+  /* تحقق من عدم قطع النصوص الطويلة */
+  .page-sidebar a, .page-sidebar strong, .rf-field > span { overflow-wrap: anywhere; }
+
+  /* ارتفاعات النوافذ مع شريط المتصفح المتحرك على الجوال */
+  .rf-eligibility-dialog { max-height: 94dvh; }
+}
+
+@media (max-width: 380px) {
+  .logo-text-ar { font-size: .85rem; }
+  .logo-sub { display: none; }
+  .residency-service-choices { gap: 8px; }
+  .residency-choice { padding: 10px; }
+}
+
+/* لوحة المرشد السفلية: أقل ارتفاعًا كي لا تغطي معظم الشاشة */
+@media (max-width: 1099.98px) {
+  .adv-stage.adv-dock .adv-brief { max-height: 22vh; }
+}
+@media (max-width: 380px) {
+  .adv-stage.adv-dock .adv-brief { max-height: 20vh; }
+}
