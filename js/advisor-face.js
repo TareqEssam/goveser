@@ -15,6 +15,7 @@
  * \u0627\u0644\u0648\u0627\u062c\u0647\u0629: GOVESER_AdvisorFace.create({canvas, headAct, base, reduced, visible}) \u2192 \u0643\u0627\u0626\u0646 \u0628\u0627\u0644\u062f\u0648\u0627\u0644:
  *   look({nx,ny}|null)  talk(bool)  speak(text, lang, rate)  boundary(charIndex)  speakEnd()
  *   audioLevel(0..1|null)  mood(name, ms)  blinkNow()  pose(obj|null)  destroy()
+ *   disapprove({hold, ms})  relax()   \u2014 \u062a\u0639\u0628\u064a\u0631 \u0639\u062f\u0645 \u0627\u0644\u0631\u0636\u0627: \u0627\u0646\u0637\u0641\u0627\u0621 \u0627\u0644\u0627\u0628\u062a\u0633\u0627\u0645\u0629 + \u0647\u0632\u0651 \u0627\u0644\u0631\u0623\u0633 \u064a\u0645\u064a\u0646\u064b\u0627 \u0648\u064a\u0633\u0627\u0631\u064b\u0627 + \u0646\u0638\u0631\u0629 \u0648\u062c\u0641\u0648\u0646 \u062b\u0642\u064a\u0644\u0629
  */
 (function () {
   'use strict';
@@ -119,7 +120,8 @@
       gx: S0(), gy: S0(), tgx: 0, tgy: 0, gazeNext: 0, look: null, lastLook: null,
       blinkAt: 0, blinkT0: -1, blinkDur: [90, 40, 190], blinkAmt: 1, blinkP: 0, nextBlink: 0,
       jaw: S0(), lipS: S0(), sxS: S0(1), ckS: S0(), smile: S0(0.62),
-      mood: 'calm', moodUntil: 0,
+      mood: 'calm', moodUntil: 0, hold: false,
+      dis: S0(), sq: S0(), shT0: -1, shDur: 1500, shDir: 1,
       hr: S0(), hy: S0(), hx: S0(), hz: S0(1), hk: 0, hs: 0,
       q: S0(), lidBase: S0(0.03)
     };
@@ -129,6 +131,7 @@
     for (i0 = 0; i0 < RIG.eyes.length; i0++) { var E0 = RIG.eyes[i0]; EB.push({ x: Math.floor(E0.x0) - 9, y: 139, w: E0.top.length + 19, h: 31 }); }
     var MB = { x: 183, y: 212, w: 121, h: 64 };
     var MR = RIG.mouth;
+    var SQ_MAX = 0.74;                                    // \u0623\u0642\u0635\u0649 \u0627\u0646\u0636\u063a\u0627\u0637 \u0631\u0623\u0633\u064a \u0644\u0644\u0634\u0641\u0629 \u0627\u0644\u0633\u0641\u0644\u064a\u0629 \u0648\u0627\u0644\u0623\u0633\u0646\u0627\u0646 (\u0625\u0637\u0628\u0627\u0642 \u0627\u0644\u0634\u0641\u062a\u064a\u0646 \u0639\u0646\u062f \u0627\u0644\u0627\u0633\u062a\u064a\u0627\u0621)
 
     /* \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u0627\u0644\u0631\u0633\u0645: \u0627\u0644\u0639\u064a\u0646\u0627\u0646 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
     function eyePath(E) {
@@ -220,7 +223,8 @@
       var i = Math.round(x - MR.x0);
       return MR.cut[clamp(i, 0, MR.cut.length - 1)];
     }
-    function drawMouth(jaw, sx, ck) {
+    function drawMouth(jaw, sx, ck, sq) {
+      sq = sq || 0;
       var x, X0 = MR.x_min, X1 = MR.x_max, Y0 = MR.y0, Y1 = MR.y1 + 6, cx = MR.cx, hw = MR.hw;
       ctx.clearRect(MB.x, MB.y, MB.w, MB.h);
       ctx.save(); ctx.setTransform(CS, 0, 0, CS, 0, 0);
@@ -254,16 +258,40 @@
         x = X0 + i;
         var c0 = cut[i], s0 = cs[i], d0 = dy[i], dx0 = dxs[i];
         if (c0 > Y0) ctx.drawImage(m, x, Y0, 1, c0 - Y0, dx0, Y0 + s0, wd, c0 - Y0);
-        ctx.drawImage(m, x, c0, 1, Y1 - c0, dx0, c0 + d0 + s0, wd, Y1 - c0);
+        ctx.drawImage(m, x, c0, 1, Y1 - c0, dx0, c0 + d0 + s0, wd, (Y1 - c0) * (1 - SQ_MAX * sq));
       }
       ctx.restore();
     }
 
     /* \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u0627\u0644\u062a\u062d\u062f\u064a\u062b \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
-    var moodBase = { calm: 0.62, happy: 1.0, serious: 0.18 };
+    var moodBase = { calm: 0.62, happy: 1.0, serious: 0.18, displeased: 0.0 };
     function setMood(name, ms) {
-      st.mood = moodBase[name] != null ? name : 'calm';
+      if (moodBase[name] == null) name = 'calm';
+      // \u0627\u0644\u0627\u0633\u062a\u064a\u0627\u0621 \u0627\u0644\u0645\u0633\u062a\u0645\u0631 (hold) \u0644\u0627 \u064a\u0644\u063a\u064a\u0647 \u062a\u0646\u0628\u064a\u0647 'serious'\u061b \u064a\u0644\u063a\u064a\u0647 \u0641\u0642\u0637 \u0627\u0644\u0647\u062f\u0648\u0621/\u0627\u0644\u0631\u0636\u0627 (relax / nod)
+      if (st.mood === 'displeased' && st.hold && name === 'serious') return;
+      st.mood = name; st.hold = (name === 'displeased' && !ms);
       st.moodUntil = ms ? now() + ms : 0;
+    }
+    function disapprove(o) {
+      o = o || {};
+      setMood('displeased', o.hold === false ? (o.ms || 3200) : 0);
+      var t = now();
+      if (!reduced()) {
+        st.shT0 = t; st.shDur = 1450; st.shDir = Math.random() < 0.5 ? -1 : 1;
+        if (st.blinkT0 < 0) { startBlink(t + 60, 1); st.blinkDur = [150, 130, 300]; }   // \u0631\u0645\u0634\u0629 \u0628\u0637\u064a\u0626\u0629 \u062b\u0642\u064a\u0644\u0629 \u0641\u064a \u0627\u0644\u0628\u062f\u0627\u064a\u0629
+      }
+      schedule();
+    }
+    function relax() { if (st.mood === 'displeased') { st.mood = 'calm'; st.hold = false; st.moodUntil = 0; } }
+    /* \u0647\u0632\u0651 \u0627\u0644\u0631\u0623\u0633: \u064a\u0639\u064a\u062f {x: \u0625\u0632\u0627\u062d\u0629 px, r: \u0645\u064a\u0644\u00b0, ry: \u062f\u0648\u0631\u0627\u0646 \u062d\u0648\u0644 \u0627\u0644\u0645\u062d\u0648\u0631 \u0627\u0644\u0631\u0623\u0633\u064a\u00b0, n: -1..1} \u2014 2.7 \u062f\u0648\u0631\u0629 \u0628\u0646\u0628\u0636\u0629 \u0628\u062f\u0627\u064a\u0629 \u0633\u0631\u064a\u0639\u0629 \u0648\u062a\u0644\u0627\u0634\u064d \u062a\u062f\u0631\u064a\u062c\u064a */
+    function shakeAt(t) {
+      if (st.shT0 < 0) return null;
+      var e = t - st.shT0;
+      if (e >= st.shDur) { st.shT0 = -1; return null; }
+      var u = e / st.shDur, env = Math.min(1, u / 0.1) * Math.pow(1 - u, 0.85);
+      var ph = (e / 460) * Math.PI * 2, d = st.shDir;
+      var s1 = Math.sin(ph) * d * env;
+      return { x: s1 * 4.2, r: s1 * 3.6, ry: s1 * 15, n: s1 };
     }
     function startBlink(t, amt) {
       st.blinkT0 = t; st.blinkAmt = amt || 1;
@@ -324,6 +352,10 @@
       if (sp.on && st.mood === 'calm') sm -= 0.06;
       damp(st.smile, clamp(sm, 0, 1), 5, dt);
       var s = st.smile.x, ib = 1 - s;
+      damp(st.dis, st.mood === 'displeased' ? 1 : 0, 6, dt);
+      var dv = st.dis.x;
+      var shk = (headAct && !rd) ? shakeAt(t) : null;
+      damp(st.sq, dv * (sp.on ? 0.3 : 1), 7, dt);
 
       // \u2500\u2500 \u0627\u0644\u0631\u0645\u0634 \u2500\u2500
       if (!rd) {
@@ -337,8 +369,8 @@
       // \u2500\u2500 \u0627\u0644\u0646\u0638\u0631\u0629 \u2500\u2500
       if (!rd) {
         if (t >= st.gazeNext) pickGaze(t);
-        damp(st.gx, st.tgx + 0.015 * noise(t * 0.011), 30, dt);
-        damp(st.gy, st.tgy + 0.015 * noise(t * 0.013 + 3), 30, dt);
+        damp(st.gx, (shk ? -shk.n * 0.55 : st.tgx) + 0.015 * noise(t * 0.011), shk ? 18 : 30, dt);
+        damp(st.gy, (shk ? 0.1 : st.tgy) + 0.015 * noise(t * 0.013 + 3), 30, dt);
       } else { st.gx.x = 0; st.gy.x = 0; }
 
       // \u2500\u2500 \u0627\u0644\u0641\u0645 \u2500\u2500
@@ -355,8 +387,8 @@
       if (rd) { jawT = -ib * 3.2; wT = 0; rT = 0; }
       damp(st.jaw, jawT, sp.on ? 24 : 9, dt);
       damp(st.lipS, lipT, 30, dt);
-      damp(st.sxS, 1 - ib * 0.05 + wT, 17, dt);
-      damp(st.ckS, ib * 1.9 + (rT > 0 ? rT * 0.55 : rT * 0.3), 12, dt);
+      damp(st.sxS, 1 - ib * 0.05 - dv * 0.04 + wT, 17, dt);
+      damp(st.ckS, ib * 1.9 + dv * 5.5 + (rT > 0 ? rT * 0.55 : rT * 0.3), 12, dt);
 
       // \u2500\u2500 \u0627\u0644\u0631\u0623\u0633: \u062d\u0631\u0643\u0629 \u062d\u064a\u0651\u0629 (\u062a\u0645\u0627\u064a\u0644 + \u0625\u064a\u0645\u0627\u0621\u0627\u062a \u0645\u0639 \u0627\u0644\u0643\u0644\u0627\u0645 + \u062a\u062a\u0628\u0651\u0639 \u0627\u0644\u0646\u0638\u0631) \u2500\u2500
       if (headAct && !rd) {
@@ -368,28 +400,32 @@
         var hyT = 0.9 * noise(t * 0.00037 + 7) + sv * 1.1 * noise(t * 0.0025) + st.hk + ly * 1.4;
         var hzT = 1 + sv * 0.012 + 0.004 * noise(t * 0.0004);
         damp(st.hr, hrT, 5, dt); damp(st.hy, hyT, 8, dt); damp(st.hx, hxT, 5, dt); damp(st.hz, hzT, 5, dt);
-        headAct.style.transform = 'translate3d(' + st.hx.x.toFixed(2) + 'px,' + st.hy.x.toFixed(2) + 'px,0) rotate(' + st.hr.x.toFixed(3) + 'deg) scale(' + st.hz.x.toFixed(4) + ')';
+        if (shk) {
+          headAct.style.transform = 'perspective(900px) translate3d(' + (st.hx.x + shk.x).toFixed(2) + 'px,' + (st.hy.x + Math.abs(shk.n) * 0.6).toFixed(2) + 'px,0) rotateY(' + shk.ry.toFixed(2) + 'deg) rotate(' + (st.hr.x + shk.r).toFixed(3) + 'deg) scale(' + st.hz.x.toFixed(4) + ')';
+        } else {
+          headAct.style.transform = 'translate3d(' + st.hx.x.toFixed(2) + 'px,' + st.hy.x.toFixed(2) + 'px,0) rotate(' + st.hr.x.toFixed(3) + 'deg) scale(' + st.hz.x.toFixed(4) + ')';
+        }
       }
     }
 
     function render() {
-      var p, q, gx, gy, jaw, sx, ck, e, m;
+      var p, q, gx, gy, jaw, sx, ck, e, m, sqv = 0;
       if (P) {
         p = P.blink || 0; q = P.lower || 0; gx = P.gx || 0; gy = P.gy || 0;
-        jaw = P.jaw || 0; sx = P.sx != null ? P.sx : 1; ck = P.ck || 0;
+        jaw = P.jaw || 0; sx = P.sx != null ? P.sx : 1; ck = P.ck || 0; sqv = P.sq || 0;
       } else {
         gx = clamp(st.gx.x, -1, 1); gy = clamp(st.gy.x, -1, 1);
         var s = st.smile.x;
-        var base = 0.03 + clamp(gy, 0, 1) * 0.16 - clamp(-gy, 0, 1) * 0.02 + (1 - s) * 0.06 * 0;
+        var base = 0.03 + clamp(gy, 0, 1) * 0.16 - clamp(-gy, 0, 1) * 0.02 + (1 - s) * 0.06 * 0 + st.dis.x * 0.17;
         p = clamp(base + (1 - base) * st.blinkP, 0, 1);
-        q = clamp(Math.max(0, (s - 0.7)) * 0.5 + st.blinkP * 0.9 * (st.blinkAmt), 0, 1);
+        q = clamp(Math.max(0, (s - 0.7)) * 0.5 + st.blinkP * 0.9 * (st.blinkAmt) + st.dis.x * 0.2, 0, 1);
         if (st.mood === 'serious') q = Math.max(q, 0.1);
-        jaw = st.jaw.x - st.lipS.x * 0.0; sx = st.sxS.x; ck = st.ckS.x;
+        jaw = st.jaw.x - st.lipS.x * 0.0; sx = st.sxS.x; ck = st.ckS.x; sqv = st.sq.x;
       }
       e = [Math.round(p * 120), Math.round(q * 80), Math.round(gx * 25), Math.round(gy * 25)].join(',');
       if (e !== sig.eyes) { sig.eyes = e; drawEyes(p, q, gx, gy); }
-      m = [Math.round(jaw * 8), Math.round(sx * 200), Math.round(ck * 8)].join(',');
-      if (m !== sig.mouth) { sig.mouth = m; drawMouth(jaw, sx, ck); }
+      m = [Math.round(jaw * 8), Math.round(sx * 200), Math.round(ck * 8), Math.round(sqv * 40)].join(',');
+      if (m !== sig.mouth) { sig.mouth = m; drawMouth(jaw, sx, ck, sqv); }
     }
 
     function loop(ts) {
@@ -462,9 +498,11 @@
       mood: setMood,
       blinkNow: function () { if (st.blinkT0 < 0) startBlink(now(), 1); },
       nod: function () { st.hk += 3.2; setMood('happy', 1600); },
+      disapprove: disapprove,
+      relax: relax,
       pose: function (o) { P = o || null; sig.eyes = ''; sig.mouth = ''; schedule(); },
       renderOnce: function () { render(); },
-      state: function () { return { smile: st.smile.x, jaw: st.jaw.x, gx: st.gx.x, gy: st.gy.x, blink: st.blinkP, speaking: sp.on, k: sp.k }; },
+      state: function () { return { mood: st.mood, dis: st.dis.x, sq: st.sq.x, shaking: st.shT0 >= 0, smile: st.smile.x, jaw: st.jaw.x, gx: st.gx.x, gy: st.gy.x, blink: st.blinkP, speaking: sp.on, k: sp.k }; },
       isReady: function () { return ready; },
       destroy: function () { disposed = true; if (raf) cancelAnimationFrame(raf); clearTimeout(tmr); ctx.clearRect(0, 0, canvas.width, canvas.height); if (headAct) headAct.style.transform = ''; }
     };

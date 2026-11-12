@@ -125,9 +125,9 @@
       en: { w: 'Please type the company name exactly as it appears in the commercial register.', f: 'The commercial register, or the company’s incorporation deed.', e: 'Example Investment Co. (LLC)', t: 'Please do not abbreviate or translate the name; any difference from the register may give rise to remarks on the request.' } },
     companyLaw: {
       ar: { w: 'يُرجى اختيار القانون الذي تخضع له الشركة، كما هو مذكور في مستنداتها وفي آخر تعديل عليها.', f: 'السجل التجاري (بجوار اسم الشركة)، أو عقد التأسيس.', t: 'يُرجى عدم الاختيار على سبيل التخمين. وإذا لم تكونوا متأكدين فاختاروا «لست متأكدًا»، وسيوضح لكم النموذج كيفية التحقق من القانون.',
-        o: { '72': 'قانون الاستثمار رقم 72 لسنة 2017، وهو القانون الحالي للاستثمار.', '8': 'قانون ضمانات وحوافز الاستثمار رقم 8 لسنة 1997، وهو قانون أقدم؛ يُرجى اختياره فقط إذا ورد صراحةً في مستندات الشركة.', '230': 'قانون الاستثمار رقم 230 لسنة 1989، وهو قانون أقدم؛ يُرجى اختياره فقط إذا ورد صراحةً في مستندات الشركة.', '43': 'القانون رقم 43 لسنة 1974 بشأن نظام استثمار المال العربي والأجنبي والمناطق الحرة، وهو قانون أقدم؛ يُرجى اختياره فقط إذا ورد صراحةً في مستندات الشركة.', unknown: 'سيعرض عليكم النموذج طريقة التحقق من القانون الذي تخضع له الشركة.' } },
+        o: { '159': 'الشركات المنشأة وفقًا للقانون رقم 159 لسنة 1981 يمكنها الحصول على مزايا قانون الاستثمار بشرط التقدم بطلب للتمتع بها، ولا بد من قرار التمتع قبل طلب خدمات إقامة المستثمر.', '72': 'قانون الاستثمار رقم 72 لسنة 2017، وهو القانون الحالي للاستثمار.', '8': 'قانون ضمانات وحوافز الاستثمار رقم 8 لسنة 1997، وهو قانون أقدم؛ يُرجى اختياره فقط إذا ورد صراحةً في مستندات الشركة.', '230': 'قانون الاستثمار رقم 230 لسنة 1989، وهو قانون أقدم؛ يُرجى اختياره فقط إذا ورد صراحةً في مستندات الشركة.', '43': 'القانون رقم 43 لسنة 1974 بشأن نظام استثمار المال العربي والأجنبي والمناطق الحرة، وهو قانون أقدم؛ يُرجى اختياره فقط إذا ورد صراحةً في مستندات الشركة.', unknown: 'سيعرض عليكم النموذج طريقة التحقق من القانون الذي تخضع له الشركة.' } },
       en: { w: 'Please select the law to which the company is subject, as stated in its documents and latest amendment.', f: 'The commercial register (beside the company name), or the incorporation deed.', t: 'Please do not guess. If you are not certain, select “Not sure” and the form will explain how to verify the law.',
-        o: { '72': 'Investment Law No. 72 of 2017, which is the current investment law.', '8': 'Investment Guarantees and Incentives Law No. 8 of 1997, an earlier law; please select it only if it is expressly stated in the company documents.', '230': 'Investment Law No. 230 of 1989, an earlier law; please select it only if it is expressly stated in the company documents.', '43': 'Law No. 43 of 1974 on Arab and Foreign Capital Investment and Free Zones, an earlier law; please select it only if it is expressly stated in the company documents.', unknown: 'The form will show you how to verify the law to which the company is subject.' } } },
+        o: { '159': 'Companies established under Law No. 159 of 1981 can obtain the benefits of the Investment Law if they apply to enjoy them; the benefits decision is required before applying for investor-residence services.', '72': 'Investment Law No. 72 of 2017, which is the current investment law.', '8': 'Investment Guarantees and Incentives Law No. 8 of 1997, an earlier law; please select it only if it is expressly stated in the company documents.', '230': 'Investment Law No. 230 of 1989, an earlier law; please select it only if it is expressly stated in the company documents.', '43': 'Law No. 43 of 1974 on Arab and Foreign Capital Investment and Free Zones, an earlier law; please select it only if it is expressly stated in the company documents.', unknown: 'The form will show you how to verify the law to which the company is subject.' } } },
     zone: {
       ar: { w: 'يُرجى اختيار «استثمار داخلي» ما لم تكن الشركة واقعة داخل منطقة حرة أو منطقة استثمارية معتمدة.', f: 'عنوان الشركة ونظام الاستثمار الخاضعة له، كما هو مدوَّن في السجل التجاري أو عقد التأسيس.', t: 'يُرجى اختيار منطقة حرة أو منطقة استثمارية فقط إذا كانت الشركة واقعة فعليًا داخل منطقة معتمدة من هذا النوع.',
         o: { internal: 'للشركات الواقعة خارج المناطق الحرة والمناطق الاستثمارية.', free: 'للشركات الواقعة داخل منطقة حرة معتمدة.', investment: 'للشركات الواقعة داخل منطقة استثمارية معتمدة.' } },
@@ -288,6 +288,17 @@
         o: { start: 'أثبتت الشركة السابقة بدء النشاط.', serious: 'أثبتت الشركة السابقة جديتها.', no: 'لم يثبت بدء النشاط ولا الجدية.' } },
       en: { w: 'Please state whether the previous company has proved the commencement of its activity or its seriousness.', f: 'The previous company’s documents, and the reports of its commencement or inspection committee.', t: 'If neither has been proved, you may be asked to undertake to apply for an inspection committee and to attach the fee receipt.',
         o: { start: 'The previous company has proved the commencement of its activity.', serious: 'The previous company has proved its seriousness.', no: 'Neither commencement nor seriousness has been proved.' } } },
+    insideEgypt: {
+      ar: { w: 'يُرجى اختيار «نعم» فقط إذا كان المستثمر موجودًا داخل مصر وقت تقديم الطلب.', f: 'موقع المستثمر الفعلي وقت التقديم.', t: 'منح الإقامة وتجديدها لا يكونان إلا للمستثمر الموجود داخل البلاد.',
+        o: { yes: 'المستثمر داخل مصر وقت تقديم الطلب.', no: 'المستثمر خارج مصر؛ ولا يمكن استكمال هذه الخدمة.' } },
+      en: { w: 'Please select “Yes” only if the investor is inside Egypt at the time the request is submitted.', f: 'The investor’s actual location at the time of submission.', t: 'Residence grant and renewal are only for an investor inside the country.',
+        o: { yes: 'The investor is inside Egypt at the time of submission.', no: 'The investor is outside Egypt; this service cannot be continued.' } } },
+    enjoymentDecisionNumber: {
+      ar: { w: 'يُرجى إدخال رقم قرار التمتع بمزايا قانون الاستثمار كما هو مطبوع على القرار.', f: 'قرار التمتع الصادر للشركة.', t: 'أرقام فقط. لا تُقبل الشركة الخاضعة للقانون 159 دون هذا القرار.' },
+      en: { w: 'Please enter the Investment Law benefits decision number as printed on the decision.', f: 'The benefits decision issued to the company.', t: 'Digits only. A Law 159 company cannot continue without this decision.' } },
+    enjoymentDecisionYear: {
+      ar: { w: 'يُرجى إدخال سنة صدور قرار التمتع.', f: 'قرار التمتع الصادر للشركة.', t: 'أربعة أرقام؛ لا تسبق سنة تأسيس الشركة.' },
+      en: { w: 'Please enter the year the benefits decision was issued.', f: 'The benefits decision issued to the company.', t: 'Four digits; it cannot precede the incorporation year.' } },
     outsideEgypt: {
       ar: { w: 'يُرجى اختيار «نعم» فقط إذا كان المستثمر خارج مصر وقت تقديم طلب تأشيرة الدخول.', f: 'موقع المستثمر الفعلي وقت التقديم.',
         o: { yes: 'المستثمر خارج مصر وقت تقديم الطلب.', no: 'المستثمر داخل مصر وقت تقديم الطلب.' } },
@@ -378,7 +389,11 @@
   function parseDate(v) { if (!v) return null; var d = new Date(String(v) + 'T12:00:00'); return isNaN(d.getTime()) ? null : d; }
   function today() { var d = new Date(); d.setHours(0, 0, 0, 0); return d; }
   function ctl(name) { return mount ? mount.querySelector('[name="' + name + '"]') : null; }
-  function val(name) { var e = ctl(name); return e ? e.value : ''; }
+  function formState(name) {
+    try { var st = window.GOVESER_FormState && window.GOVESER_FormState.get(); return st && st[name] != null ? String(st[name]) : ''; } catch (_) { return ''; }
+  }
+  /* قيمة الحقل: من الشاشة الحالية، وإن لم يكن ظاهرًا (خطوة أخرى) فمن حالة النموذج المحفوظة */
+  function val(name) { var e = ctl(name); return e ? e.value : formState(name); }
 
   var LEGAL_MIN = { joint: 250000, llc: 50000, one: 50000, partnership: 300000, limitedShares: 300000, sole: 100000 };
   function isEmail(v) { return /^[A-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+[A-Z]{2,63}$/i.test(String(v || '').trim()); }
@@ -399,6 +414,35 @@
 
   /* كل دالة تعيد null (لا حكم بعد) أو { s: ok|warn|err, m:[ar,en] } */
   var V = {
+    companyLaw: function (v) {
+      if (v !== '159') return null;
+      return res('warn',
+        'الشركات المنشأة وفقًا لأحكام القانون رقم 159 لسنة 1981 يمكنها الحصول على مزايا قانون الاستثمار، بشرط أن تتقدم بطلب للتمتع بمزايا قانون الاستثمار. فإذا كانت الشركة تمارس نشاطًا خاضعًا لقانون الاستثمار، فيمكنها التقدم إلى اللجنة المختصة للحصول على قرار بالتمتع. وبعد حصولها على هذا القرار يمكنها التقدم بطلب للحصول على خدمات إقامة المستثمر. لذلك يُرجى إدخال رقم قرار التمتع وسنة صدوره، وإذا لم تحصل الشركة عليه بعد فلا يمكن استكمال الخدمة الآن.',
+        'Companies established under Law No. 159 of 1981 can obtain the benefits of the Investment Law, provided that they apply to enjoy those benefits. If the company carries on an activity that falls under the Investment Law, it can apply to the competent committee for a decision granting it the benefits. Once it has that decision, it can apply for investor-residence services. So please enter the decision number and year; if the company has not obtained it yet, the service cannot be completed now.');
+    },
+    enjoymentDecisionNumber: function (v) {
+      var d = normDigits(v).trim(); if (!d) return null;
+      if (!/^[0-9][0-9\/-]{0,14}$/.test(d)) return res('err', 'رقم القرار يجب أن يتكون من أرقام فقط.', 'The decision number must consist of digits only.');
+      return res('ok', 'تم إدخال رقم القرار.', 'Decision number entered.');
+    },
+    enjoymentDecisionYear: function (v) {
+      var d = normDigits(v).trim(); if (!d) return null;
+      var cy = new Date().getFullYear();
+      if (d.length < 4) return res('warn', 'أدخل السنة من أربعة أرقام.', 'Enter the year as four digits.');
+      var y = parseInt(d, 10);
+      if (!/^[0-9]{4}$/.test(d) || y < 1981 || y > cy) return res('err', 'سنة غير صحيحة؛ يجب أن تكون بين 1981 و' + cy + '.', 'Invalid year; it must be between 1981 and ' + cy + '.');
+      var inc = parseDate(val('companyStart'));
+      if (inc && y < inc.getFullYear()) return res('err', 'لا يمكن أن يصدر قرار التمتع قبل تأسيس الشركة. راجع السنة.', 'The benefits decision cannot be issued before the company was incorporated. Please check the year.');
+      return res('ok', 'سنة القرار مقبولة.', 'Decision year accepted.');
+    },
+    outsideEgypt: function (v) {
+      if (v === 'no') return res('err', 'المستثمر داخل مصر، وتأشيرة الدخول لا تكون إلا للمستثمر الموجود خارجها؛ فلا يمكن استكمال هذه الخدمة.', 'The investor is inside Egypt, and an entry visa is only for an investor outside it; this service cannot be continued.');
+      return null;
+    },
+    insideEgypt: function (v) {
+      if (v === 'no') return res('err', 'المستثمر خارج مصر، ومنح الإقامة أو تجديدها لا يكونان إلا للمستثمر الموجود داخلها؛ فلا يمكن استكمال هذه الخدمة.', 'The investor is outside Egypt, and residence can only be granted or renewed for an investor inside it; this service cannot be continued.');
+      return null;
+    },
     unifiedRegister: function (v) {
       var d = normDigits(v).replace(/\D/g, ''); if (!d) return null;
       if (d.length < 15) return res('warn', 'أُدخل ' + d.length + ' من أصل 15 رقمًا. يُرجى استكمال باقي الأرقام.', d.length + ' of 15 digits entered. Please complete the remaining digits.');
@@ -814,6 +858,7 @@
     if (muted || !stage || !isGuidable(el)) return;
     var key = keyOf(el.name);
     var same = cur && cur.name === el.name;
+    if (!same) relaxFace();
     cur = { el: el, name: el.name, key: key, forced: null };
     markTarget(el);
     if (!same || force) {
@@ -824,6 +869,7 @@
   }
   function deactivate() {
     if (!cur) return;
+    relaxFace();
     cur = null;
     clearTarget();
     renderBrief(complete() ? { complete: true } : {});
@@ -1445,6 +1491,18 @@
     clearTimeout(run.speakT);
     run.speakT = setTimeout(function () { actor && actor.classList.remove('is-speaking'); if (face && !sp.playing) face.talk(false); }, 1400);
   }
+  /* عدم الرضا: لا ابتسامة + هزّ الرأس يمينًا ويسارًا (للوجه المتحرك) أو اهتزاز CSS احتياطي */
+  var lastRejectAt = 0;
+  function disapprove() {
+    if (!actor || muted) return;
+    var t = Date.now(); if (t - lastRejectAt < 1200) return; lastRejectAt = t;
+    if (face && face.disapprove) face.disapprove();
+    if (!reduced && !face) {
+      actor.classList.remove('is-shake'); void actor.offsetWidth; actor.classList.add('is-shake');
+      clearTimeout(run.shakeT); run.shakeT = setTimeout(function () { actor && actor.classList.remove('is-shake'); }, 1500);
+    }
+  }
+  function relaxFace() { if (face && face.relax) face.relax(); if (actor) actor.classList.remove('is-shake'); }
   function nod() {
     if (!actor || reduced) return;
     if (face) face.nod();
@@ -1489,7 +1547,23 @@
       if (s && s.s === 'ok' && cur.lastS !== 'ok') nod();
       cur.lastS = s ? s.s : '';
       updateProgress();
+      handleRejection(e, s);
     }, 140);
+  }
+  /* بيان خاطئ: يُظهر المرشد عدم الرضا فور اعتماد القيمة (اختيار/خروج من الحقل)، أو بعد توقف الكتابة ثانية تقريبًا — لا أثناء الكتابة */
+  function handleRejection(e, s) {
+    clearTimeout(onInput._rt);
+    if (!s || s.s !== 'err') { cur.rejKey = ''; relaxFace(); return; }
+    var key = JSON.stringify(s.m);
+    if (cur.rejKey === key) return;
+    var committed = e.type === 'change' || (e.target && e.target.tagName === 'SELECT');
+    var nm = cur.name;
+    function fire() {
+      if (!cur || cur.name !== nm) return;          // النموذج يُعاد رسمه عند الاختيار فيتبدّل العنصر؛ نتحقق بالاسم لا بالمرجع
+      var again = statusFor(cur.el, cur.key);
+      if (again && again.s === 'err') { cur.rejKey = JSON.stringify(again.m); disapprove(); }
+    }
+    if (committed) fire(); else onInput._rt = setTimeout(fire, 1000);
   }
   function updateProgress() {
     if (!brief) return;
@@ -1606,7 +1680,7 @@
     var el = targetEl && isGuidable(targetEl) ? targetEl : (key && ctl(key)) || null;
     if (!el) return;
     activate(el, true);
-    if (mode === 'alert' && cur) { var a = ALERTS[cur.key]; if (a) { cur.forced = { s: 'err', m: L2(a) }; refreshStatus(); } }
+    if (mode === 'alert' && cur) { var a = ALERTS[cur.key]; if (a) { cur.forced = { s: 'err', m: L2(a) }; refreshStatus(); } disapprove(); }
   }
   function hide() { if (cur) { cur = null; clearTarget(); renderBrief(); aim(); } }
   function mute() {
@@ -1633,7 +1707,7 @@
   function showDetail() { var d = brief && brief.querySelector('.adv-opts'); if (d) d.open = true; }
 
   window.GOVESER_Advisor = {
-    show: show, hide: hide, mute: mute, unmute: unmute, isMuted: isMuted, alertFor: alertFor, showDetail: showDetail,
+    reject: disapprove, show: show, hide: hide, mute: mute, unmute: unmute, isMuted: isMuted, alertFor: alertFor, showDetail: showDetail,
     voiceOn: function () { setVoiceOn(true); }, voiceOff: function () { setVoiceOn(false); },
     isVoiceOn: function () { return voiceOn; }, listen: toggleListen, stopSpeech: stopSpeech
   };
